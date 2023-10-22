@@ -106,7 +106,7 @@
 		color: rgba(255, 255, 255, 0.7);
 	}
 	&:hover {
-		background-color: $button_hover;
+		background-color: $button_hover-black;
 	}
 	cursor: pointer;
 	span {
@@ -116,5 +116,8 @@
 		right: -160px;
 		background-color: $white;
 		color: $black;
+		&:hover {
+			background-color: $button_hover-white;
+		}
 	}
 }
