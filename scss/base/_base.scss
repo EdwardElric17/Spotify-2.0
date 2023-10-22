@@ -1,0 +1,25 @@
+@font-face {
+	font-family: 'CircularStd-Bold';
+	src: url('/font/circular-std-font-family/CircularStd-Bold.woff') format(woff);
+}
+@font-face {
+	font-family: 'CircularStd-Book';
+	src: url('/font/circular-std-font-family/CircularStd-Book.woff') format(woff);
+}
+
+body {
+	display: grid;
+	grid-template-columns: 310px 1fr 0px;
+	overflow: hidden;
+
+    color: $white;
+    font-size: 18px;
+	transition: grid-template-columns 0.2s ease;
+}
+a {
+    color: $white;
+    transition: color 0.1s ease-in;
+    &:hover {
+        color: $accent;
+    }
+}

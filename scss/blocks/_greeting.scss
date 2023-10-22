@@ -1,0 +1,32 @@
+.greeting {
+	padding: 30px 42px 50px;
+	.title-1 {
+		font-family: $font-bold;
+		font-size: 39px;
+	}
+}
+
+.greeting__mixes {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	gap: 16px 31px;
+	padding-top: 30px;
+}
+.greeting__mix {
+	display: flex;
+	align-items: center;
+	gap: 21px;
+
+	border-radius: 6px;
+	background-color: $greeting_mixes;
+	backdrop-filter: blur(5px);
+}
+.mix__cover {
+	height: 82px;
+	width: 82px;
+	border-radius: 6px 0px 0px 6px;
+}
+.greeting__mix-title {
+	font-size: 20px;
+	font-family: $font-bold;
+}
