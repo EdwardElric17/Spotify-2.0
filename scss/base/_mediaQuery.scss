@@ -5,22 +5,34 @@
 	.header__profile {
 		margin-right: 0px !important;
 	}
-	.header__search {
-		max-width: 468px;
+	.header__arrows {
+		display: none !important;
+	}
+	.header__arrow-search {
+		grid-template-columns: 1fr !important;
 	}
 }
 @media screen and (max-width: 1000px) {
-	.header__search {
-		justify-content: center !important;
-		padding: 0px !important;
-		border-radius: 50% !important;
-	}
-	.header__input-full {
-		display: none !important;
-	}
-	.header__input-mobile {
-		display: block !important;
-
-
+	// .header__search {
+	// 	justify-content: center !important;
+	// 	padding: 0px !important;
+	// 	border-radius: 50% !important;
+	// }
+	// .input__full {
+	// 	display: none !important;
+	// }
+	.header__profile {
+		&:hover .profile__avatar{
+			filter: brightness(0.7);
+		}
+		.profile__avatar {
+			height: 46px !important;
+			width: 46px !important;
+			transition: filter 0.1s ease;
+		}
+		.nick__name,
+		.profile__arrow_drop {
+			display: none;
+		}
 	}
 }

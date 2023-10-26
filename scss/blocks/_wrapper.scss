@@ -1,8 +1,11 @@
 .wrapper {
 	position: relative;
 	top: 0;
+	left: 0;
 
-	display: flex;
+	display: grid;
+	grid-template-columns: auto 1fr;
+
 	width: calc(100% - 310px);
 	height: 100%;
 
