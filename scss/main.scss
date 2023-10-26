@@ -1,7 +1,8 @@
 // Base
 @import './base/vars';
 @import './base/reset';
-@import './base/_base';
+@import './base/base';
+@import './base/mediaQuery';
 
 // Blocks
 @import './blocks/nav';
@@ -9,5 +10,6 @@
 @import './blocks/header';
 @import './blocks/greeting';
 @import './blocks/friends';
+@import './blocks/wrapper';
 
 @import './blocks/player';

@@ -66,6 +66,7 @@ input::-ms-clear {
 }
 
 button, input[type=submit] {
+  display: inline-block;
   box-shadow: none;
   background-color: transparent;
   background: none;
@@ -99,12 +100,9 @@ legend {
   src: url("/font/circular-std-font-family/CircularStd-Book.woff") format(woff);
 }
 body {
-  display: grid;
-  grid-template-columns: 310px 1fr 0px;
-  overflow: hidden;
   color: #fff;
   font-size: 18px;
-  transition: grid-template-columns 0.2s ease;
+  display: flex;
 }
 
 a {
@@ -115,9 +113,34 @@ a:hover {
   color: rgba(255, 255, 255, 0.7);
 }
 
+@media screen and (max-width: 1500px) {
+  .header__friends {
+    display: none;
+  }
+  .header__profile {
+    margin-right: 0px !important;
+  }
+  .header__search {
+    max-width: 468px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .header__search {
+    justify-content: center !important;
+    padding: 0px !important;
+    border-radius: 50% !important;
+  }
+  .header__input-full {
+    display: none !important;
+  }
+  .header__input-mobile {
+    display: block !important;
+  }
+}
 .sidebar {
-  max-width: 310px;
-  padding: 70px 30px;
+  width: 310px;
+  height: 100%;
+  padding: 70px 30px 169px;
   background-color: #000;
 }
 
@@ -157,9 +180,12 @@ hr {
 }
 
 .main {
-  flex: 1;
+  width: 100%;
   padding-bottom: 169px;
   background: linear-gradient(#3333A3, #121212, #121212);
+}
+.main--closed {
+  width: calc(100% - 310px);
 }
 
 .header {
@@ -181,6 +207,7 @@ hr {
 
 .header__arrows {
   display: flex;
+  justify-content: flex-start;
   gap: 22px;
 }
 .header__arrows img {
@@ -197,12 +224,14 @@ hr {
 }
 
 .header__search {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 14px;
   padding: 10px 18px;
   max-width: 468px;
   min-height: 52px;
+  min-width: 52px;
   background-color: #fff;
   border-radius: 26px;
   font-family: "CircularStd-Book";
@@ -211,16 +240,32 @@ hr {
   filter: brightness(0.9);
 }
 .header__search .search_icon {
+  min-width: 32px;
+  min-height: 32px;
   cursor: pointer;
 }
-.header__search .header__search-input {
+.header__search .header__input-full {
   width: 100%;
   color: #000;
 }
-.header__search .header__search-input::-moz-placeholder {
+.header__search .header__input-full::-moz-placeholder {
   color: #757575;
 }
-.header__search .header__search-input::placeholder {
+.header__search .header__input-full::placeholder {
+  color: #757575;
+}
+.header__search .header__input-mobile {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  display: none;
+  width: 100%;
+  color: #000;
+}
+.header__search .header__input-mobile::-moz-placeholder {
+  color: #757575;
+}
+.header__search .header__input-mobile::placeholder {
   color: #757575;
 }
 
@@ -231,12 +276,11 @@ hr {
   gap: 14px;
   padding: 3px;
   margin-right: 170px;
-  transition: margin 0.2s ease;
   background-color: #000;
   border-radius: 40px;
   font-family: "CircularStd-Bold";
   cursor: pointer;
-  transition: color 0.1s ease-in, background-color 0.1s ease-in;
+  transition: color 0.1s ease, background-color 0.1s ease, margin 0.2s ease;
 }
 .header__profile:active {
   color: rgba(255, 255, 255, 0.7);
@@ -252,7 +296,7 @@ hr {
 .header__profile .profile__arrow_drop {
   margin-right: 12px;
 }
-.header__profile--closed {
+.header__profile--opened {
   margin-right: 0px;
 }
 
@@ -268,6 +312,7 @@ hr {
   font-family: "CircularStd-Bold";
   font-size: 18px;
   cursor: pointer;
+  z-index: 2;
 }
 .header__friends:active {
   color: rgba(255, 255, 255, 0.7);
@@ -278,11 +323,15 @@ hr {
 .header__friends span {
   white-space: none;
 }
-.header__friends--closed {
+.header__friends--opened {
   right: -160px;
   background-color: #fff;
   color: #000;
 }
+.header__friends--opened:hover {
+  background-color: #dadada;
+}
+
 .greeting {
   padding: 30px 42px 50px;
 }
@@ -320,14 +369,20 @@ hr {
 }
 
 .friends {
+  position: fixed;
+  right: 0;
+  top: 0;
   display: flex;
   flex-direction: column;
-  padding: 30px 20px;
+  padding: 30px 20px 169px;
   width: 310px;
-  min-width: 310px;
+  height: 100%;
   background-color: #000;
   font-family: "CircularStd-Book";
-  transition: all 0.2s ease;
+  transition: right 0.2s ease;
+}
+.friends--closed {
+  right: -310px;
 }
 
 .friends__header {
@@ -387,4 +442,16 @@ hr {
 }
 .friends__setting-button:hover {
   filter: brightness(0.7);
+}
+
+.wrapper {
+  position: relative;
+  top: 0;
+  display: flex;
+  width: calc(100% - 310px);
+  height: 100%;
+  transition: width 0.2s ease;
+}
+.wrapper--closed {
+  width: 100%;
 }/*# sourceMappingURL=main.css.map */

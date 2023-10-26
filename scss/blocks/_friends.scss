@@ -1,14 +1,27 @@
 .friends {
+	position: fixed;
+	right: 0;
+	top: 0;
 	display: flex;
 	flex-direction: column;
-	padding: 30px 20px;
+
+	padding: 30px 20px 169px;
 	width: 310px;
-	min-width: 310px;
+	height: 100%;
 
 	background-color: $black;
 	font-family: $font-book;
 
-	transition: all 0.2s ease;
+	transition: right 0.2s ease;
+	&--closed {
+		right: -310px;
+		// .friends__header {
+		// 	display: none;
+		// }
+		// .friends__body {
+		// 	display: none;
+		// }
+	}
 }
 .friends__header {
 	display: flex;

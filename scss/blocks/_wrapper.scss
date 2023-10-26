@@ -1,0 +1,13 @@
+.wrapper {
+	position: relative;
+	top: 0;
+
+	display: flex;
+	width: calc(100% - 310px);
+	height: 100%;
+
+	transition: width 0.2s ease;
+	&--closed {
+		width: 100%;
+	}
+}
