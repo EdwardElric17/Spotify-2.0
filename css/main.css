@@ -148,10 +148,10 @@ hr {
   }
 }
 @media screen and (max-width: 1000px) {
-  .header__profile:hover {
+  .header__profile .profile:hover {
     transform: scale(1.1);
   }
-  .header__profile:hover .profile__avatar {
+  .header__profile .profile:hover .profile__avatar {
     filter: brightness(0.7);
   }
   .header__profile .profile__avatar {
@@ -162,6 +162,14 @@ hr {
   .header__profile .nick__name,
   .header__profile .profile__arrow_drop {
     display: none;
+  }
+  .context-menu {
+    top: 55px !important;
+    left: unset !important;
+    right: 0px !important;
+  }
+  .context-menu:hover {
+    z-index: 3 !important;
   }
 }
 .sidebar {
@@ -372,6 +380,7 @@ hr {
 
 .greeting {
   padding: 30px 42px 50px;
+  z-index: 0;
 }
 
 .greeting__mixes {

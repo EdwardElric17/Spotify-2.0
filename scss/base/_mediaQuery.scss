@@ -27,11 +27,13 @@
 	// 	display: none !important;
 	// }
 	.header__profile {
-		&:hover {
-			transform: scale(1.1);
-		}
-		&:hover .profile__avatar{
-			filter: brightness(0.7);
+		.profile {
+			&:hover {
+				transform: scale(1.1);
+			}
+			&:hover .profile__avatar{
+				filter: brightness(0.7);
+			}
 		}
 		.profile__avatar {
 			height: 46px !important;
@@ -41,6 +43,15 @@
 		.nick__name,
 		.profile__arrow_drop {
 			display: none;
+		}
+	}
+	.context-menu {
+		top: 55px !important;
+		left: unset !important;
+		right: 0px !important;
+		
+		&:hover {
+			z-index: 3 !important;
 		}
 	}
 }
