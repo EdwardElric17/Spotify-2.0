@@ -1,0 +1,37 @@
+.context-menu {
+	position: absolute;
+	top: 45px;
+	left: 0px;
+
+	width: 240px;
+
+	background-color: $black;
+	border-radius: 4px;
+	z-index: 2;
+	&--closed {
+		display: none !important;
+	}
+}
+.context-menu__list {
+	display: flex;
+	flex-direction: column;
+	.list__elem {
+		padding: 15px 15px 14px 21px;
+		width: 100%;
+
+		font-size: 18px;
+		font-family: $font-book;
+		transition: all 0.1s ease;
+		&:active {
+			color: $white_active;
+		}
+		&:hover {
+			background-color: $black_hover;
+		}
+		&:first-child {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}

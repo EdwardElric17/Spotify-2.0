@@ -90,27 +90,32 @@
 	}
 }
 .header__profile {
-	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 14px;
+	position: relative;
 
-	padding: 3px;
-	margin-right: 170px;
-
-	background-color: $black;
-	border-radius: 40px;
-	font-family: $font-bold;
-	cursor: pointer;
-	transition: color 0.1s ease, 
-				background-color 0.1s ease, 
-				margin 0.2s ease;
-	&:active {
-		color: rgba(255, 255, 255, 0.7);
+	.profile {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 14px;
+	
+		padding: 3px;
+		margin-right: 170px;
+	
+		background-color: $black;
+		border-radius: 40px;
+		font-family: $font-bold;
+		cursor: pointer;
+		transition: color 0.1s ease, 
+					background-color 0.1s ease, 
+					margin 0.2s ease;
+		&:active {
+			color: $white_active;
+		}
+		&:hover {
+			background-color: $black_hover;
+		}
 	}
-	&:hover {
-		background-color: $black_hover;
-	}
+	
 	.profile__avatar {
 		height: 34px;
 		width: 34px;
@@ -133,10 +138,11 @@
 	border-radius: 40px;
 	background-color: $black;
 	color: $white;
-	transition: all 0.2s ease;
 	
 	font-family: $font-bold;
 	font-size: 18px;
+
+	transition: all 0.2s ease;
 	cursor: pointer;
 	z-index: 2;
 	&:active {
@@ -149,7 +155,7 @@
 		white-space: none;
 	}
 	&--opened {
-		right: -160px;
+		right: -172px;
 		background-color: $white;
 		color: $black;
 		&:hover {

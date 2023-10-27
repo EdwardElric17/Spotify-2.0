@@ -2,13 +2,17 @@
 $black: #000;
 $white: #fff;
 $accent: rgba(255, 255, 255, 0.7);
-$black_hover: #101010;
+$black_hover: #101010c2;
 $white_hover: #ffffffc2;
+$white_active: #ffffffc2;
 $placeholder: #757575;
 $explore_button: #ADADAD;
+$explore_button-hover: #888888;
 $decs_color: #b3b3b3;
 $greeting_mixes: rgba(255, 255, 255, 0.07);
-$mix_card: rgba(255, 255, 255, 0.031);
+$greeting_mixes-hover: rgba(255, 255, 255, 0.1);
+$mix_card: rgba(255, 255, 255, 0.03);
+$mix_card-hover: rgba(255, 255, 255, 0.06);
 
 // Fonts
 $font-bold: 'CircularStd-Bold';

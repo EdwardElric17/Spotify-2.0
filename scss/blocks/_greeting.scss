@@ -16,11 +16,21 @@
 	border-radius: 6px;
 	background-color: $greeting_mixes;
 	backdrop-filter: blur(5px);
+	cursor: pointer;
+	transition: all 0.1s ease;
+	&:hover {
+		transform: scale(102%);
+		background-color: $greeting_mixes-hover;
+	}
+	&:hover .mix__cover{
+		filter: contrast(1.2);
+	}
 }
 .mix__cover {
 	height: 82px;
 	width: 82px;
 	border-radius: 6px 0px 0px 6px;
+	transition: filter 0.1s ease;
 }
 .greeting__mix-title {
 	font-size: 20px;

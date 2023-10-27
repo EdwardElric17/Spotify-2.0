@@ -6,6 +6,7 @@ const headerProfile = document.querySelector('.header__profile')
 
 closingX.addEventListener('click', friendsClose)
 openingButton.addEventListener('click', friendsOpen)
+window.addEventListener('resize', autoClose)
 
 function friendsClose() {
 	wrapper.classList.toggle('wrapper--closed')
@@ -22,4 +23,15 @@ function friendsOpen() {
 function frindsButtonShift() {
 	openingButton.classList.toggle('header__friends--opened')
 	headerProfile.classList.toggle('header__profile--opened')
+}
+
+function autoClose() {
+	if (
+		!friends.classList.contains('friends--closed') 
+		&& 
+		document.documentElement.clientWidth <= 1500
+		) 
+	{
+		friendsClose()
+	}
 }

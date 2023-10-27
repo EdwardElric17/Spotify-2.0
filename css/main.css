@@ -123,6 +123,11 @@ a:hover {
   font-size: 30px;
 }
 
+hr {
+  width: 100%;
+  border-top: 1px solid #282828;
+}
+
 @media screen and (max-width: 1500px) {
   .header__friends {
     display: none;
@@ -137,7 +142,15 @@ a:hover {
     grid-template-columns: 1fr !important;
   }
 }
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    width: 200px !important;
+  }
+}
 @media screen and (max-width: 1000px) {
+  .header__profile:hover {
+    transform: scale(1.1);
+  }
   .header__profile:hover .profile__avatar {
     filter: brightness(0.7);
   }
@@ -178,11 +191,6 @@ a:hover {
 }
 .sidebar__nav a img {
   transition: filter 0.1s ease-in;
-}
-
-hr {
-  width: 100%;
-  border-top: 1px solid #282828;
 }
 
 .sidebar__playlists {
@@ -295,6 +303,9 @@ hr {
 }
 
 .header__profile {
+  position: relative;
+}
+.header__profile .profile {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -307,11 +318,11 @@ hr {
   cursor: pointer;
   transition: color 0.1s ease, background-color 0.1s ease, margin 0.2s ease;
 }
-.header__profile:active {
-  color: rgba(255, 255, 255, 0.7);
+.header__profile .profile:active {
+  color: rgba(255, 255, 255, 0.7607843137);
 }
-.header__profile:hover {
-  background-color: #101010;
+.header__profile .profile:hover {
+  background-color: rgba(16, 16, 16, 0.7607843137);
 }
 .header__profile .profile__avatar {
   height: 34px;
@@ -334,9 +345,9 @@ hr {
   border-radius: 40px;
   background-color: #000;
   color: #fff;
-  transition: all 0.2s ease;
   font-family: "CircularStd-Bold";
   font-size: 18px;
+  transition: all 0.2s ease;
   cursor: pointer;
   z-index: 2;
 }
@@ -344,13 +355,13 @@ hr {
   color: rgba(255, 255, 255, 0.7);
 }
 .header__friends:hover {
-  background-color: #101010;
+  background-color: rgba(16, 16, 16, 0.7607843137);
 }
 .header__friends span {
   white-space: none;
 }
 .header__friends--opened {
-  right: -160px;
+  right: -172px;
   background-color: #fff;
   color: #000;
 }
@@ -377,12 +388,22 @@ hr {
   background-color: rgba(255, 255, 255, 0.07);
   -webkit-backdrop-filter: blur(5px);
           backdrop-filter: blur(5px);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.greeting__mix:hover {
+  transform: scale(102%);
+  background-color: rgba(255, 255, 255, 0.1);
+}
+.greeting__mix:hover .mix__cover {
+  filter: contrast(1.2);
 }
 
 .mix__cover {
   height: 82px;
   width: 82px;
   border-radius: 6px 0px 0px 6px;
+  transition: filter 0.1s ease;
 }
 
 .greeting__mix-title {
@@ -461,9 +482,10 @@ hr {
   letter-spacing: 2px;
   font-family: "CircularStd-Bold";
   border-radius: 40px;
+  transition: all 0.1s ease;
 }
 .friends__setting-button:hover {
-  filter: brightness(0.7);
+  background-color: rgba(255, 255, 255, 0.7607843137);
 }
 
 .wrapper {
@@ -491,6 +513,11 @@ hr {
 .explore-button {
   font-size: 16px;
   color: #ADADAD;
+  cursor: pointer;
+  transition: color 0.1s ease;
+}
+.explore-button:hover {
+  color: #888888;
 }
 
 .mixes__rows {
@@ -508,6 +535,7 @@ hr {
 .mixes__title {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .mixes__cards {
@@ -522,9 +550,22 @@ hr {
   gap: 25px;
   padding: 20px 21px;
   border-radius: 8px;
-  background-color: rgba(255, 255, 255, 0.031);
+  background-color: rgba(255, 255, 255, 0.03);
   -webkit-backdrop-filter: blur(10px);
           backdrop-filter: blur(10px);
+  cursor: pointer;
+  transition: all 0.1s ease;
+}
+.mixes__card:hover {
+  transform: scale(102%);
+  background-color: rgba(255, 255, 255, 0.06);
+}
+.mixes__card:hover .card__img {
+  filter: contrast(1.1);
+}
+
+.card__img {
+  transition: filter 0.1s ease;
 }
 
 .mix__name {
@@ -543,4 +584,40 @@ hr {
 .card__desc {
   font-family: "CircularStd-Book";
   color: #b3b3b3;
+}
+
+.context-menu {
+  position: absolute;
+  top: 45px;
+  left: 0px;
+  width: 240px;
+  background-color: #000;
+  border-radius: 4px;
+  z-index: 2;
+}
+.context-menu--closed {
+  display: none !important;
+}
+
+.context-menu__list {
+  display: flex;
+  flex-direction: column;
+}
+.context-menu__list .list__elem {
+  padding: 15px 15px 14px 21px;
+  width: 100%;
+  font-size: 18px;
+  font-family: "CircularStd-Book";
+  transition: all 0.1s ease;
+}
+.context-menu__list .list__elem:active {
+  color: rgba(255, 255, 255, 0.7607843137);
+}
+.context-menu__list .list__elem:hover {
+  background-color: rgba(16, 16, 16, 0.7607843137);
+}
+.context-menu__list .list__elem:first-child {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }/*# sourceMappingURL=main.css.map */

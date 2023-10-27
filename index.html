@@ -77,9 +77,33 @@
 				</div>
 				
 				<div class="header__profile">
-					<img class="profile__avatar" src="/img/header/avatar.jpg">
-					<span class="nick__name">MihailKaretnikov</span>
-					<img class="profile__arrow_drop" src="/img/header/arrow_drop.png">
+					<div class="profile">
+						<img class="profile__avatar" src="/img/header/avatar.jpg">
+						<span class="nick__name">MihailKaretnikov</span>
+						<img class="profile__arrow_drop" src="/img/header/arrow_drop.png">
+					</div>
+
+					<div class="context-menu context-menu--closed">
+						<div class="context-menu__list">
+							<a class="list__elem" href="#">
+								<span>Account</span>
+								<img src="/img/header/arrow_drop.png">
+							</a>
+							<a class="list__elem" href="#">
+								<span>Profile</span>
+							</a>
+							<a class="list__elem" href="#">
+								<span>Private session</span>
+							</a>
+							<a class="list__elem" href="#">
+								<span>Settings</span>
+							</a>
+							<hr>
+							<a class="list__elem" href="#">
+								<span>Log out</span>
+							</a>
+						</div>
+					</div>
 				</div>
 	
 				<div class="header__friends">
@@ -343,5 +367,6 @@
 
 	<script src="/js/friends.js"></script>
 	<script src="/js/inputMobile.js"></script>
+	<script src="/js/header-profile.js"></script>
 </body>
 </html>
