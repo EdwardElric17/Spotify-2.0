@@ -304,6 +304,8 @@ hr {
 
 .header__profile {
   position: relative;
+  margin-right: 170px;
+  transition: margin-right 0.1s ease;
 }
 .header__profile .profile {
   display: flex;
@@ -311,7 +313,6 @@ hr {
   justify-content: space-between;
   gap: 14px;
   padding: 3px;
-  margin-right: 170px;
   background-color: #000;
   border-radius: 40px;
   font-family: "CircularStd-Bold";

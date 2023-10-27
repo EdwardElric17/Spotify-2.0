@@ -91,16 +91,15 @@
 }
 .header__profile {
 	position: relative;
-
+	margin-right: 170px;
+	transition: margin-right 0.1s ease;
 	.profile {
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
 		gap: 14px;
-	
 		padding: 3px;
-		margin-right: 170px;
-	
+		
 		background-color: $black;
 		border-radius: 40px;
 		font-family: $font-bold;

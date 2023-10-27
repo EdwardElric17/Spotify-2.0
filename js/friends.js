@@ -19,6 +19,11 @@ function friendsOpen() {
 		friends.classList.toggle('friends--closed')
 		frindsButtonShift()
 	}
+	else if (!friends.classList.contains('friends--closed')) {
+		wrapper.classList.toggle('wrapper--closed')
+		friends.classList.toggle('friends--closed')
+		frindsButtonShift()
+	}
 }
 function frindsButtonShift() {
 	openingButton.classList.toggle('header__friends--opened')
