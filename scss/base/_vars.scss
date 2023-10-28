@@ -9,10 +9,24 @@ $placeholder: #757575;
 $explore_button: #ADADAD;
 $explore_button-hover: #888888;
 $decs_color: #b3b3b3;
+$hr: #282828;
 $greeting_mixes: rgba(255, 255, 255, 0.07);
 $greeting_mixes-hover: rgba(255, 255, 255, 0.1);
 $mix_card: rgba(255, 255, 255, 0.03);
 $mix_card-hover: rgba(255, 255, 255, 0.06);
+
+// Font Sizes
+$primal: 18px;
+$secondary: 20px;
+$h1: 39px;
+$h2: 30px;
+
+@media screen and (max-width: 1280px) {
+	$primal: 16px;
+	$secondary: 18px;
+	$h1: 36px;
+	$h2: 27px;
+}
 
 // Fonts
 $font-bold: 'CircularStd-Bold';
