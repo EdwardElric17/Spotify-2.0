@@ -142,11 +142,6 @@ hr {
     grid-template-columns: 1fr !important;
   }
 }
-@media screen and (max-width: 1200px) {
-  .sidebar {
-    width: 200px !important;
-  }
-}
 @media screen and (max-width: 1000px) {
   .header__profile .profile:hover {
     transform: scale(1.1);
@@ -173,6 +168,7 @@ hr {
   }
 }
 .sidebar {
+  position: fixed;
   width: 310px;
   height: 100%;
   padding: 70px 30px 169px;
@@ -211,8 +207,10 @@ hr {
 
 .main {
   width: 100%;
+  padding-left: 310px;
   padding-bottom: 169px;
   background: linear-gradient(#3333A3, #121212, #121212);
+  transition: width 0.2s ease;
 }
 .main--closed {
   width: calc(100% - 310px);

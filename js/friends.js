@@ -1,4 +1,4 @@
-const wrapper = document.querySelector('.wrapper')
+const main = document.querySelector('.main')
 const friends = document.querySelector('.friends')
 const closingX = friends.querySelector('.closing-x')
 const openingButton = document.querySelector('.header__friends')
@@ -9,18 +9,18 @@ openingButton.addEventListener('click', friendsOpen)
 window.addEventListener('resize', autoClose)
 
 function friendsClose() {
-	wrapper.classList.toggle('wrapper--closed')
+	main.classList.toggle('main--closed')
 	friends.classList.toggle('friends--closed')
 	frindsButtonShift()
 }
 function friendsOpen() {
 	if (friends.classList.contains('friends--closed')) {
-		wrapper.classList.toggle('wrapper--closed')
+		main.classList.toggle('main--closed')
 		friends.classList.toggle('friends--closed')
 		frindsButtonShift()
 	}
 	else if (!friends.classList.contains('friends--closed')) {
-		wrapper.classList.toggle('wrapper--closed')
+		main.classList.toggle('main--closed')
 		friends.classList.toggle('friends--closed')
 		frindsButtonShift()
 	}
