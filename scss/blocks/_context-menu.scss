@@ -11,6 +11,14 @@
 	&--closed {
 		display: none !important;
 	}
+	@include mediaTablet {
+		top: 55px;
+		left: unset;
+		right: 0px;
+		&:hover {
+			z-index: 3;
+		}
+	}
 }
 .context-menu__list {
 	display: flex;

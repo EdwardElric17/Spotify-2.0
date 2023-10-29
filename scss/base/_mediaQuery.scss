@@ -1,58 +1,72 @@
-
-@media screen and (max-width: 1500px) {
-	.header__friends {
-		display: none;
-	}
-	.header__profile {
-		margin-right: 0px !important;
-	}
-	.header__arrows {
-		display: none !important;
-	}
-	.header__arrow-search {
-		grid-template-columns: 1fr !important;
+@mixin mediaDecstop {
+	@media screen and (max-width: $desctop) {
+		@content;
 	}
 }
-// @media screen and (max-width: 1200px) {
-// 	.sidebar {
-// 		width: 200px !important;
+@mixin mediaTablet {
+	@media screen and (max-width: $tablet) {
+		@content;
+	}
+}
+@mixin mediaMobile {
+	@media screen and (max-width: $mobile) {
+		@content;
+	}
+}
+// @media screen and (max-width: 1500px) {
+// 	.header__friends {
+// 		display: none;
+// 	}
+// 	.header__profile {
+// 		margin-right: 0px !important;
+// 	}
+// 	.header__arrows {
+// 		display: none !important;
+// 	}
+// 	.header__arrow-search {
+// 		grid-template-columns: 1fr !important;
 // 	}
 // }
-@media screen and (max-width: 1000px) {
-	// .header__search {
-	// 	justify-content: center !important;
-	// 	padding: 0px !important;
-	// 	border-radius: 50% !important;
-	// }
-	// .input__full {
-	// 	display: none !important;
-	// }
-	.header__profile {
-		.profile {
-			&:hover {
-				transform: scale(1.1);
-			}
-			&:hover .profile__avatar{
-				filter: brightness(0.7);
-			}
-		}
-		.profile__avatar {
-			height: 46px !important;
-			width: 46px !important;
-			transition: filter 0.1s ease;
-		}
-		.nick__name,
-		.profile__arrow_drop {
-			display: none;
-		}
-	}
-	.context-menu {
-		top: 55px !important;
-		left: unset !important;
-		right: 0px !important;
+// // @media screen and (max-width: 1200px) {
+// // 	.sidebar {
+// // 		width: 200px !important;
+// // 	}
+// // }
+// @media screen and (max-width: 1000px) {
+// 	// .header__search {
+// 	// 	justify-content: center !important;
+// 	// 	padding: 0px !important;
+// 	// 	border-radius: 50% !important;
+// 	// }
+// 	// .input__full {
+// 	// 	display: none !important;
+// 	// }
+// 	.header__profile {
+// 		.profile {
+// 			&:hover {
+// 				transform: scale(1.1);
+// 			}
+// 			&:hover .profile__avatar{
+// 				filter: brightness(0.7);
+// 			}
+// 		}
+// 		.profile__avatar {
+// 			height: 46px !important;
+// 			width: 46px !important;
+// 			transition: filter 0.1s ease;
+// 		}
+// 		.nick__name,
+// 		.profile__arrow_drop {
+// 			display: none;
+// 		}
+// 	}
+// 	.context-menu {
+// 		top: 55px !important;
+// 		left: unset !important;
+// 		right: 0px !important;
 		
-		&:hover {
-			z-index: 3 !important;
-		}
-	}
-}
+// 		&:hover {
+// 			z-index: 3 !important;
+// 		}
+// 	}
+// }

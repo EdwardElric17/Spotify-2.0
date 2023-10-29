@@ -15,6 +15,9 @@
 	grid-template-columns: auto 1fr;
 	align-items: center;
 	gap: 21px;
+	@include mediaDecstop {
+		grid-template-columns: 1fr;
+	}
 }
 .header__arrows {
 	display: flex;
@@ -31,6 +34,9 @@
 		&:active {
 			filter: brightness(0.9);
 		}
+	}
+	@include mediaDecstop {
+		display: none;
 	}
 }
 .header__search {
@@ -93,6 +99,9 @@
 	position: relative;
 	margin-right: 170px;
 	transition: margin-right 0.1s ease;
+	@include mediaDecstop {
+		margin-right: 0px;
+	}
 	.profile {
 		display: flex;
 		align-items: center;
@@ -113,6 +122,14 @@
 		&:hover {
 			background-color: $black_hover;
 		}
+		@include mediaTablet {
+			&:hover {
+				transform: scale(1.1);
+			}
+			&:hover .profile__avatar{
+				filter: brightness(0.7);
+			}
+		}
 	}
 	
 	.profile__avatar {
@@ -120,6 +137,17 @@
 		width: 34px;
 		border-radius: 50%;
 		pointer-events: none;
+		@include mediaTablet {
+			height: 46px;
+			width: 46px;
+			transition: filter 0.1s ease;
+		}
+	}
+	.nick__name,
+	.profile__arrow_drop {
+		@include mediaTablet {
+			display: none;
+		}
 	}
 	.profile__arrow_drop {
 		margin-right: 12px;
@@ -160,5 +188,8 @@
 		&:hover {
 			background-color: $white_hover;
 		}
+	}
+	@include mediaDecstop {
+		display: none;
 	}
 }
