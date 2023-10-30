@@ -2,35 +2,39 @@
 $black: #000;
 $white: #fff;
 $accent: rgba(255, 255, 255, 0.7);
-$black_hover: #101010c2;
-$white_hover: #ffffffc2;
-$white_active: #ffffffc2;
 $placeholder: #757575;
 $explore_button: #ADADAD;
-$explore_button-hover: #888888;
 $decs_color: #b3b3b3;
 $hr: #282828;
 $greeting_mixes: rgba(255, 255, 255, 0.07);
-$greeting_mixes-hover: rgba(255, 255, 255, 0.1);
 $mix_card: rgba(255, 255, 255, 0.03);
+$player: #181818;
+$progress_wrapper: #A6A6A6;
+$progress_line: #fff;
+
+$black_hover: #101010c2;
+$white_hover: #ffffffc2;
+$white_active: #ffffffc2;
+$greeting_mixes-hover: rgba(255, 255, 255, 0.1);
 $mix_card-hover: rgba(255, 255, 255, 0.06);
+$explore_button-hover: #888888;
 
 // Font Sizes
 $primal: 1rem;
 $secondary: 1.1rem;
-$explore-button: 0.9rem;
+$third: 0.9rem;
 $h1: 2.15rem;
 $h2: 1.7rem;
 
 $primal-tablet: 0.9rem;
 $secondary-tablet: 1rem;
-$explore-button-tablet: 0.8rem;
+$third-tablet: 0.8rem;
 $h1-tablet: 1.6rem;
 $h2-tablet: 1.3rem;
 
 $primal-mobile: 0.8rem;
 $secondary-mobile: 0.9rem;
-$explore-button-mobile: 0.5rem;
+$third-mobile: 0.5rem;
 $h1-mobile: 1.4rem;
 $h2-mobile: 1.2rem;
 

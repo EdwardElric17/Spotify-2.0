@@ -7,6 +7,9 @@
 
 	background-color: transparent;
 	font-family: $font-book;
+	@include mediaDecstop {
+		gap: 30px;
+	}
 	@include mediaMobile {
 		gap: 20px;
 	}
