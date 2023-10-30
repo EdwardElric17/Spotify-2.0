@@ -1,0 +1,9 @@
+.container {
+	padding: 14px 42px;
+	@include mediaTablet {
+		padding: 12px 30px;
+	}
+	@include mediaMobile {
+		padding: 10px 20px;
+	}
+}

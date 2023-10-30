@@ -60,17 +60,17 @@
 	justify-content: center;
 }
 .friends__setting-button {
-	background-color: $white;
-	color: $black;
-
 	width: 233px;
 	padding: 20px 33px;
 	margin: auto 23px 0px;
 	margin-top: 23px;
 	letter-spacing: 2px;
-	font-family: $font-bold;
 	border-radius: 40px;
-
+	
+	background-color: $white;
+	color: $black;
+	font-family: $font-bold;
+	font-size: $primal;
 	transition: all 0.1s ease;
 	&:hover {
 		background-color: $white_hover;

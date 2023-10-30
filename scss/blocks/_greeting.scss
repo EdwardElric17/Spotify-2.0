@@ -1,18 +1,35 @@
 .greeting {
-	padding: 30px 42px 50px;
+	padding: 30px 0px 50px;
 	z-index: 0;
+	@include mediaTablet {
+		padding: 25px 0px 15px;
+	}
+	@include mediaMobile {
+		padding: 20px 0px 10px;
+	}
 }
-
 .greeting__mixes {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	grid-template-columns: 1fr 1fr 1fr;
 	gap: 16px 31px;
 	padding-top: 30px;
+	@include mediaDecstop {
+		grid-template-columns: 1fr 1fr;
+	}
+	@include mediaTablet {
+		grid-template-columns: 1fr;
+		gap: 13px;
+	}
+	@include mediaMobile {
+		gap: 10px;
+		padding-top: 15px;
+	}
 }
 .greeting__mix {
 	display: flex;
 	align-items: center;
 	gap: 21px;
+	padding-right: 10px;
 
 	border-radius: 6px;
 	background-color: $greeting_mixes;
@@ -32,8 +49,22 @@
 	width: 82px;
 	border-radius: 6px 0px 0px 6px;
 	transition: filter 0.1s ease;
+	@include mediaDecstop {
+		height: 72px;
+		width: 72px;
+	}
+	@include mediaTablet {
+		height: 62px;
+		width: 62px;
+	}
 }
 .greeting__mix-title {
-	font-size: 20px;
+	font-size: $secondary;
 	font-family: $font-bold;
+	@include mediaDecstop {
+		font-size: $secondary-tablet;
+	}
+	@include mediaMobile {
+		font-size: $secondary-mobile;
+	}
 }

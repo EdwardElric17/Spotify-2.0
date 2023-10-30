@@ -3,7 +3,50 @@
 	width: 310px;
 	height: 100%;
 	padding: 70px 30px 169px;
+
+	font-size: $primal;
 	background-color: $black;
+	transition: width 0.2s ease;
+	z-index: 3;
+	@include mediaDecstop {
+		width: 230px;
+		font-size: $primal-tablet;
+	}
+	@include mediaTablet {
+		width: 92px;
+		padding: 45px 30px 100px;
+		padding-right: 25px;
+		&:hover {
+			.nav__text {
+				display: block;
+				opacity: 1;
+			}
+			.nav__hr {
+				opacity: 1;
+			}
+		}
+		&:hover {
+			width: 270px;
+			a {
+				justify-content: unset;
+			}
+			.sidebar__playlists {
+				a {
+					span {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+	@include mediaMobile {
+		width: 63px;
+		padding: 35px 15px 60px;
+		padding-right: 5px;
+		&:hover {
+			width: 230px;
+		}
+	}
 }
 .sidebar__nav {
 	display: flex;
@@ -26,6 +69,26 @@
 		img {
 			transition: filter 0.1s ease-in;
 		}
+		span {
+			white-space: nowrap;
+			transition: all 0.1s ease;
+			@include mediaTablet {
+				pointer-events: none;
+				opacity: 0;
+			}
+		}
+		@include mediaTablet {
+			justify-content: left;
+		}
+	}
+	@include mediaMobile {
+		gap: 15px;
+	}
+}
+.nav__hr {
+	transition: all 0.2s ease;
+	@include mediaTablet {
+		opacity: 0;
 	}
 }
 .sidebar__playlists {
@@ -35,4 +98,17 @@
 	margin-top: 20px;
 
 	font-family: $font-book;
+	a {
+		transition: all 0.1s ease;
+		span {
+			pointer-events: none;
+			@include mediaTablet {
+				white-space: nowrap;
+				opacity: 0;
+			}
+		}
+	}
+	@include mediaMobile {
+		gap: 13px;
+	}
 }

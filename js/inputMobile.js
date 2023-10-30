@@ -26,6 +26,6 @@
 // 		inputMobile.classList.remove('visible')
 // 	}
 // })
-document.addEventListener('click', (event) => {
-	console.log(event.target)
-})
+// document.addEventListener('click', (event) => {
+// 	console.log(event.target)
+// })

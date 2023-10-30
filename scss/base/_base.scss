@@ -8,18 +8,11 @@
 }
 
 body {
-	// display: grid;
-	// grid-template-columns: 310px 1fr 0px;
-	// overflow: hidden;
-
     color: $white;
     font-size: $primal;
-	// transition: grid-template-columns 0.2s ease;
-	// &--opened {
-	// 	grid-template-columns: 310px 1fr 310px;
-	// }
-
-	display: flex;
+	@include mediaDecstop {
+		font-size: $primal-tablet;
+	}
 }
 a {
     color: $white;
@@ -30,11 +23,23 @@ a {
 }
 .title-1 {
 	font-family: $font-bold;
-	font-size: 39px;
+	font-size: $h1;
+	@include mediaDecstop {
+		font-size: $h1-tablet;
+	}
+	@include mediaMobile {
+		font-size: $h1-mobile;
+	}
 }
 .title-2 {
 	font-family: $font-bold;
-	font-size: 30px;
+	font-size: $h2;
+	@include mediaDecstop {
+		font-size: $h2-tablet;
+	}
+	@include mediaMobile {
+		font-size: $h2-mobile;
+	}
 }
 hr {
 	width: 100%;

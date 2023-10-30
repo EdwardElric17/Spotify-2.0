@@ -1,9 +1,9 @@
 .context-menu {
 	position: absolute;
-	top: 45px;
+	top: 50px;
 	left: 0px;
 
-	width: 240px;
+	width: 100%;
 
 	background-color: $black;
 	border-radius: 4px;
@@ -12,12 +12,17 @@
 		display: none !important;
 	}
 	@include mediaTablet {
-		top: 55px;
+		top: 60px;
 		left: unset;
 		right: 0px;
+		width: 200px;
 		&:hover {
 			z-index: 3;
 		}
+	}
+	@include mediaMobile {
+		width: 150px;
+		top: 40px;
 	}
 }
 .context-menu__list {
@@ -27,7 +32,7 @@
 		padding: 15px 15px 14px 21px;
 		width: 100%;
 
-		font-size: 18px;
+		font-size: $primal;
 		font-family: $font-book;
 		transition: all 0.1s ease;
 		&:active {
@@ -40,6 +45,14 @@
 			display: flex;
 			justify-content: space-between;
 			align-items: center;
+		}
+		@include mediaDecstop {
+			padding: 13px 13px 13px 17px;
+			font-size: $primal-tablet;
+		}
+		@include mediaMobile {
+			padding: 10px 10px 10px 14px;
+			font-size: $primal-mobile;
 		}
 	}
 }

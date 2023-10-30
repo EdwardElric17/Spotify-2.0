@@ -5,10 +5,11 @@
 	grid-template-columns: 1fr auto;
 	gap: 50px;
 
-	padding: 14px 42px;
-
 	background-color: transparent;
 	font-family: $font-book;
+	@include mediaMobile {
+		gap: 20px;
+	}
 }
 .header__arrow-search {
 	display: grid;
@@ -46,10 +47,10 @@
 	flex: 1;
 	align-items: center;
 	gap: 14px;
-	padding: 10px 18px;
+	padding: 10px 14px;
 	max-width: 468px;
 	width: 100%;
-	min-height: 52px;
+	// min-height: 52px;
 
 	background-color: $white;
 	border-radius: 26px;
@@ -58,6 +59,11 @@
 	transition: background-color 0.1s ease;
 	&:hover {
 		background-color: $white_hover;
+	}
+	@include mediaMobile {
+		height: 35px;
+		padding: 8px 5px;
+		font-size: $primal-mobile;
 	}
 	.search__icon {
 		min-width: 32px;
@@ -68,32 +74,38 @@
 	.input__full {
 		width: 100%;
 		color: $black;
+		background-color: transparent;
+		font-size: $primal;
 		&::placeholder {
 			color: $placeholder;
 		}
+		@include mediaDecstop {
+			font-size: $primal-tablet;
+		}
+		
 	}
-	.input__mobile {
-		position: absolute;
-		top: 55px;
-		left: 0px;
+	// .input__mobile {
+	// 	position: absolute;
+	// 	top: 55px;
+	// 	left: 0px;
 
-		display: none;
-		width: 250px;
-		padding: 10px 20px;
+	// 	display: none;
+	// 	width: 250px;
+	// 	padding: 10px 20px;
 
-		border-radius: 20px;
-		background-color: $white;
-		color: $black;
-		&::placeholder {
-			color: $placeholder;
-		}
+	// 	border-radius: 20px;
+	// 	background-color: $white;
+	// 	color: $black;
+	// 	&::placeholder {
+	// 		color: $placeholder;
+	// 	}
 		// &:hover {
 		// 	background-color: $white_hover;
 		// }
-	}
-	.input__mobile.visible {
-		display: flex !important;
-	}
+	// }
+	// .input__mobile.visible {
+	// 	display: flex !important;
+	// }
 }
 .header__profile {
 	position: relative;
@@ -130,6 +142,9 @@
 				filter: brightness(0.7);
 			}
 		}
+		@include mediaMobile {
+			padding: 2px;
+		}
 	}
 	
 	.profile__avatar {
@@ -141,6 +156,10 @@
 			height: 46px;
 			width: 46px;
 			transition: filter 0.1s ease;
+		}
+		@include mediaMobile {
+			height: 31px;
+			width: 31px;
 		}
 	}
 	.nick__name,
@@ -158,8 +177,8 @@
 }
 .header__friends {
 	position: absolute;
-	top: 20px;
-	right: 42px;
+	top: 6px;
+	right: 0px;
 	padding: 9px;
 
 	border-radius: 40px;
@@ -182,7 +201,7 @@
 		white-space: none;
 	}
 	&--opened {
-		right: -172px;
+		right: -211px;
 		background-color: $white;
 		color: $black;
 		&:hover {
@@ -191,5 +210,6 @@
 	}
 	@include mediaDecstop {
 		display: none;
+		font-size: $primal-tablet;
 	}
 }
