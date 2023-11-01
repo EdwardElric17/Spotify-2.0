@@ -71,7 +71,7 @@
 		}
 		span {
 			white-space: nowrap;
-			transition: all 0.1s ease;
+			transition: all 0.2s ease;
 			@include mediaTablet {
 				pointer-events: none;
 				opacity: 0;
@@ -99,7 +99,7 @@
 
 	font-family: $font-book;
 	a {
-		transition: all 0.1s ease;
+		transition: all 0.2s ease;
 		span {
 			pointer-events: none;
 			@include mediaTablet {
