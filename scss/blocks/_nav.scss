@@ -1,3 +1,4 @@
+// Сайдбар
 .sidebar {
 	position: fixed;
 	width: 310px;
@@ -48,6 +49,9 @@
 		}
 	}
 }
+
+
+// Блок навигации
 .sidebar__nav {
 	display: flex;
 	flex-direction: column;
@@ -85,12 +89,17 @@
 		gap: 15px;
 	}
 }
+
+// Разделительная полоса
 .nav__hr {
 	transition: all 0.2s ease;
 	@include mediaTablet {
 		opacity: 0;
 	}
 }
+
+
+// Плейлисты в сайдбаре
 .sidebar__playlists {
 	display: flex;
 	flex-direction: column;
@@ -111,4 +120,99 @@
 	@include mediaMobile {
 		gap: 13px;
 	}
+}
+
+
+
+// Превью изображение
+.player__preview {
+	position: absolute;
+	left: 0px;
+	bottom: 57px;
+
+	height: 310px;
+	width: 310px;
+
+	background-image: url('/img/player/preview.jpg');
+	background-size: cover;
+	z-index: 15 !important;
+	transition: all 0.4s ease;
+	&--hide {
+		bottom: -253px;
+	}
+	@include mediaDecstop {
+		bottom: 54px;
+		height: 230px;
+		width: 230px;
+		&--hide {
+			bottom: -176px;
+		}
+	}
+	@include mediaTablet {
+		bottom: 50px;
+		height: 92px;
+		width: 92px;
+		&--hide {
+			bottom: -42px;
+		}
+	}
+	@include mediaMobile {
+		bottom: 47px;
+		height: 63px;
+		width: 63px;
+		&--hide {
+			bottom: -16px;
+		}
+	}
+}
+.preview-dropArrow {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+
+	cursor: pointer;
+	transition: all 0.4s ease;
+	z-index: 21;
+	// &:hover {
+	// 	filter: brightness(0.7);
+	// 	transform: scale(1.05);
+	// }
+	&:active {
+		filter: brightness(1);
+		transform: scale(0.95);
+	}
+	&--hide {
+		top: -40px;
+		filter: invert(1);
+		transform: rotate(180deg);
+	}
+	@include mediaDecstop {
+		right: 8px;
+		top: 8px;
+		height: 28px;
+		width: 28px;
+		&--hide {
+			top: -36px;
+		}
+	}
+	@include mediaTablet {
+		right: 6px;
+		top: 6px;
+		height: 22px;
+		width: 22px;
+		&--hide {
+			top: -29px;
+		}
+	}
+	@include mediaMobile {
+		right: 4px;
+		top: 4px;
+		height: 17px;
+		width: 17px;
+		&--hide {
+			top: -25px;
+		}
+	}
+}
+.preview-img {
 }

@@ -81,6 +81,10 @@
 				</a>
 			</li>
 		</ul>
+		<div class="player__preview">
+			<!-- <img class="preview-img" src="./img/player/photo_2023-10-14_22-12-10.jpg"> -->
+			<img class="preview-dropArrow" src="./img/player/dropArrow.svg">
+		</div>
 	</aside>
 
 	<main class="main">
@@ -443,34 +447,122 @@
 			</div>
 		</div>
 		<div class="player__rightPart">
-			<div class="total__playlist outer__cell">
+			<div class="current__playlist outer__cell">
 				<div class="inner__cell">
 					<img src="./img/player/totalPlaylist.svg">
 				</div>
 			</div>
-			<div class="total__device outer__cell">
+			<div class="current__device outer__cell">
 				<div class="inner__cell">
 					<img src="./img/player/totalDevice.svg">
 				</div>
 			</div>
 			<div class="volumeImg outer__cell">
 				<div class="inner__cell">
-					<img src="./img/player/volumeImg.svg">
+					<img class="volume" src="./img/player/volume.svg">
 				</div>
 			</div>
-			<div class="volume__line-wrapper">
-				<div class="volume__line"></div>
+
+			<div class="volume__container">
+				<div class="volume__line-wrapper">
+					<div class="volume__line"></div>
+				</div>
 			</div>
+			
 			<div class="expandPlayer outer__cell">
 				<div class="inner__cell">
 					<img src="./img/player/expandPlayer.svg">
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="player__preview">
-			<img class="preview-img" src="./img/player/photo_2023-10-14_22-12-10.jpg">
-			<img class="preview-dropArrow" src="./img/player/dropArrow.svg">
+	<div class="player-full">
+		<div class="progress">
+			
+			<div class="progress-line_wrapper">
+				<div class="current-time">
+					0:00
+				</div>
+
+				<div class="progress-line"></div>
+
+				<div class="duration">
+					4:12
+				</div>
+			</div>
+		</div>
+
+		<div class="player__leftPart">
+			<div class="song__name">
+				<div class="song__title">
+					Lose Yourself
+				</div>
+				<div class="song__artist">
+					Eminem
+				</div>
+			</div>
+			<div class="song__like outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/like_empty.svg">
+				</div>
+			</div>
+		</div>
+		<div class="player__centerPart">
+			<div class="mix__song outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/mix-song.svg">
+				</div>
+			</div>
+			<div class="back__song outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/back-song.svg">
+				</div>
+			</div>
+			<div class="pause__song outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/pause.svg">
+				</div>
+			</div>
+			<div class="next__song outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/next-song.svg">
+				</div>
+			</div>
+			<div class="repeat__song outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/repeat-song.svg">
+				</div>
+			</div>
+		</div>
+		<div class="player__rightPart">
+			<div class="current__playlist outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/totalPlaylist.svg">
+				</div>
+			</div>
+			<div class="current__device outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/totalDevice.svg">
+				</div>
+			</div>
+			<div class="volumeImg outer__cell">
+				<div class="inner__cell">
+					<img class="volume" src="./img/player/volume.svg">
+				</div>
+			</div>
+
+			<div class="volume__container">
+				<div class="volume__line-wrapper">
+					<div class="volume__line"></div>
+				</div>
+			</div>
+			
+			<div class="expandPlayer outer__cell">
+				<div class="inner__cell">
+					<img src="./img/player/expandPlayer.svg">
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -479,5 +571,6 @@
 	<script src="/js/header-profile.js"></script>
 	<script src="/js/color-change.js"></script>
 	<script src="/js/player-cells.js"></script>
+	<script src="/js/preview.js"></script>
 </body>
 </html>

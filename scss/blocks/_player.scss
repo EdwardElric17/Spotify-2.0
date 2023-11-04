@@ -1,3 +1,4 @@
+// Плеер
 .player {
 	position: fixed;
 	left: 0px;
@@ -6,50 +7,78 @@
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	width: 100%;
-	// height: 112px;
 	padding: 9px 18px 5px;
 
 	background-color: $player;
 	z-index: 20;
+	@include mediaDecstop {
+		padding: 9px 16px 5px;
+	}
+	@include mediaTablet {
+		padding: 9px 6px 5px 10px;
+	}
+	@include mediaMobile {
+		padding: 9px 3px 5px 7px;
+	}
 }
 
+
+// Линия прогресса трека
 .progress {
 	position: absolute;
 	top: 0;
 	left: 0;
 	width: 100%;
-}
-.current-time {
-	position: absolute;
-	top: -23px;
-	left: 4px;
-
-	padding: 1px 2px;
-	border-radius: 4px;
-
-	opacity: 0;
-	letter-spacing: 1px;
-	background-color: #00000045;
-	font-family: $font-book;
-	font-size: $third-tablet;
-	z-index: 20;
-	transition: all 0.3s ease;
-}
-.duration {
-	position: absolute;
-	top: -24px;
-	right: 4px;
+	.current-time {
+		position: absolute;
+		top: -23px;
+		left: 4px;
 	
-	padding: 1px 2px;
-	border-radius: 4px;
+		padding: 1px 2px;
+		border-radius: 4px;
 	
-	opacity: 0;
-	letter-spacing: 1px;
-	background-color: #00000045;
-	font-family: $font-book;
-	font-size: $third;
-	z-index: 20;
-	transition: all 0.3s ease;
+		opacity: 0;
+		letter-spacing: 1px;
+		background-color: #00000045;
+		font-family: $font-book;
+		font-size: $third;
+		z-index: 20;
+		transition: all 0.3s ease;
+		@include mediaDecstop {
+			font-size: $third-tablet;
+		}
+		@include mediaTablet {
+			font-size: $third-mobile;
+		}
+		@include mediaMobile {
+			font-size: $third-mobile2;
+		}
+	}
+	.duration {
+		position: absolute;
+		top: -24px;
+		right: 4px;
+		
+		padding: 1px 2px;
+		border-radius: 4px;
+		
+		opacity: 0;
+		letter-spacing: 1px;
+		background-color: #00000045;
+		font-family: $font-book;
+		font-size: $third;
+		z-index: 20;
+		transition: all 0.3s ease;
+		@include mediaDecstop {
+			font-size: $third-tablet;
+		}
+		@include mediaTablet {
+			font-size: $third-mobile;
+		}
+		@include mediaMobile {
+			font-size: $third-mobile2;
+		}
+	}
 }
 .progress-line_wrapper {
 	position: relative;
@@ -94,67 +123,11 @@
 
 }
 
-.player__preview {
-	position: absolute;
-	left: 0px;
-	top: -310px;
 
-	height: 310px;
-	width: 310px;
-	z-index: 19;
-	@include mediaDecstop {
-		top: -230px;
-		height: 230px;
-		width: 230px;
-	}
-	@include mediaTablet {
-		top: -92px;
-		height: 92px;
-		width: 92px;
-	}
-	@include mediaMobile {
-		top: -63px;
-		height: 63px;
-		width: 63px;
-	}
-}
-.preview-dropArrow {
-	position: absolute;
-	right: 10px;
-	top: 10px;
 
-	cursor: pointer;
-	transition: all 0.1s ease;
-	&:hover {
-		filter: brightness(0.7);
-		transform: scale(1.05);
-	}
-	&:active {
-		filter: brightness(1);
-		transform: scale(0.95);
-	}
-	@include mediaDecstop {
-		right: 8px;
-		top: 8px;
-		height: 28px;
-		width: 28px;
-	}
-	@include mediaTablet {
-		right: 6px;
-		top: 6px;
-		height: 22px;
-		width: 22px;
-	}
-	@include mediaMobile {
-		right: 4px;
-		top: 4px;
-		height: 17px;
-		width: 17px;
-	}
-}
-.preview-img {
-}
 
+
+// Название и исполнитель
 .song__name {
 	display: flex;
 	flex-direction: column;
@@ -191,13 +164,14 @@
 	}
 }
 
+
+// Кнопки
 .outer__cell {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	height: 96%;
 	padding: 1.3px;
-	// border: 2px solid transparent;
 	cursor: pointer;
 	background: transparent;
 	transition: all 0.1s ease;
@@ -214,7 +188,6 @@
 	justify-content: center;
 	height: 100%;
 	width: 100%;
-
 	background: $player;
 	img {
 		padding: 0;
@@ -227,19 +200,13 @@
 		height: 45% !important;
 		transition: all 0.1s ease;
 	}
-	// transition: all 0.2s ease;
-	// &:hover {
-	// 	filter: brightness(0.8);
-	// 	transform: scale(1.2);
-	// }
-	// &:active {
-	// 	filter: brightness(1);
-	// 	transform: scale(1);
-	// }
 }
 .mix__song {
 	&.mixed {
 		background-color: #fff;
+	}
+	@include mediaTablet {
+		display: none;
 	}
 }
 .back__song {
@@ -252,12 +219,19 @@
 	img {
 		height: 40%;
 	}
+	@include mediaTablet {
+		display: none;
+	}
 }
-.total__playlist {
+.current__playlist {
+	@include mediaTablet {
+		display: none;
+	}
 }
-.total__device {
-}
-.volumeImg {
+.current__device {
+	@include mediaDecstop {
+		display: none;
+	}
 }
 .expandPlayer {
 	img {
@@ -265,10 +239,21 @@
 	}
 }
 
+
+// Основные части плеера
 .player__leftPart {
 	display: flex;
 	align-items: center;
 	gap: 20px;
+	@include mediaDecstop {
+		gap: 16px;
+	}
+	@include mediaTablet {
+		gap: 13px;
+	}
+	@include mediaDecstop {
+		gap: 10px;
+	}
 }
 .player__centerPart {
 	display: flex;
@@ -276,7 +261,10 @@
 	justify-content: center;
 	gap: 3px;
 	@include mediaDecstop {
-		gap: 3px;
+		gap: 2px;
+	}
+	@include mediaMobile {
+		gap: 1px;
 	}
 }
 .player__rightPart {
@@ -284,23 +272,77 @@
 	align-items: center;
 	justify-content: flex-end;
 	gap: 3px;
+	@include mediaDecstop {
+		gap: 2px;
+	}
+	@include mediaMobile {
+		gap: 1px;
+	}
 }
 
+// Стили для громкости
+.volumeImg {
+	img {
+		height: 43%;
+	}
+}
+.volume__container {
+	transition: all 0.2s ease;
+	z-index: 21;
+	@include mediaTablet {
+		position: absolute;
+		bottom: 50px;
+		right: 7px;
+
+		opacity: 0;
+		padding: 20px;
+		border-radius: 6px;
+		background-color: $volume_bar;
+		backdrop-filter: blur(10px);
+	}
+	@include mediaMobile {
+		padding: 15px;
+		right: 10px;
+	}
+}
 .volume__line-wrapper {
 	min-width: 119px;
 	height: 5px;
-	margin: 0px 10px;
 
 	border-radius: 4px;
 	background-color: $progress_wrapper;
+	cursor: pointer;
+	&:hover .volume__line::after {
+		transform: scale(1);
+	}
 	@include mediaDecstop {
 		min-width: 79px;
 	}
+	@include mediaTablet {
+		min-width: 69px;
+	}
+	@include mediaMobile {
+		min-width: 59px;
+	}
 }
 .volume__line {
-	width: 60%;
+	position: relative;
 	height: 5px;
 
 	border-radius: 4px;
 	background-color: $progress_line;
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: -3px;
+		right: -2.5px;
+
+		height: 12px;
+		width: 5px;
+		transform: scale(0);
+		border-radius: 4px;
+		background-color: $progress_line;
+		transition: all 0.3s ease;
+	}
 }
