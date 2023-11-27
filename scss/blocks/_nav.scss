@@ -11,11 +11,12 @@
 	z-index: 3;
 	@include mediaDecstop {
 		width: 230px;
+		padding: 55px 30px 100px;
 		font-size: $primal-tablet;
 	}
 	@include mediaTablet {
 		width: 92px;
-		padding: 45px 30px 100px;
+		padding: 40px 30px 100px;
 		padding-right: 25px;
 		&:hover {
 			.nav__text {
@@ -135,6 +136,7 @@
 
 	background-image: url('/img/player/preview.jpg');
 	background-size: cover;
+
 	z-index: 15 !important;
 	transition: all 0.4s ease;
 	&--hide {
@@ -149,6 +151,7 @@
 		}
 	}
 	@include mediaTablet {
+		display: none;
 		bottom: 50px;
 		height: 92px;
 		width: 92px;
@@ -157,6 +160,7 @@
 		}
 	}
 	@include mediaMobile {
+		display: none;
 		bottom: 47px;
 		height: 63px;
 		width: 63px;
@@ -213,6 +217,4 @@
 			top: -25px;
 		}
 	}
-}
-.preview-img {
 }

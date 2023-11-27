@@ -25,3 +25,7 @@ function hidePreview() {
 		dropArrow.classList.toggle('preview-dropArrow--hide')
 	}
 }
+
+preview.addEventListener('mouseenter', (e) => {
+    e.stopPropagation();
+})

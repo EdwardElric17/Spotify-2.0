@@ -1,0 +1,392 @@
+// Основной стиль секции
+.player__full {
+	display: none !important;
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	padding: 10px 45px 30px 40px;
+	width: 100vw;
+	height: 100vh;
+
+	background-color: $player-full;
+	backdrop-filter: blur(80px);
+
+	z-index: 30;
+	&--full {
+		display: flex !important;
+	}
+}
+// PNG изображения шума
+.noise-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+
+	width: 100%;
+	height: 100%;
+
+	pointer-events: none;
+	opacity: 0.05;
+}
+
+
+// Части плеера
+.player__full-top {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 5px;
+	margin: 0px auto;
+}
+.player__full-bottom {
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+}
+
+// Кнопка назад
+.arrow-back {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	height: 22px;
+	width: 22px;
+	cursor: pointer;
+	
+	background: transparent;
+	transform: rotate(180deg);
+	transition: all 0.3s ease;
+
+	&:hover img{
+		transform: scale(1.07);
+	}
+	&:active img{
+		transform: scale(1);
+	}
+}
+
+// Верхняя часть плеера
+.player__full-preview {
+	background-image: url('/img/player-full/preview.jpg');
+	background-size: cover;
+	
+	width: 350px;
+	height: 350px;
+	border-radius: 20px;
+}
+.player__full-name__options {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+	.song__name {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+	}
+	.song__title {
+		font-size: $primal;
+		cursor: pointer;
+		transition: all 0.1s ease;
+		&:hover {
+			filter: brightness(0.8);
+		}
+	}
+	.song__artist {
+		font-size: $third;
+		cursor: pointer;
+		transition: all 0.1s ease;
+		&:hover {
+			filter: brightness(0.8);
+		}
+	}
+}
+.options {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	background: transparent;
+	transition: all 0.3s ease;
+	&:hover img{
+		transform: scale(1.07);
+	}
+	&:active img{
+		transform: scale(1);
+	}
+	.options__img {
+		height: 35px;
+		width: 35px;
+	}
+}
+
+// Линия прогресса трека
+.current-time-pf {
+	position: absolute;
+	top: -30px;
+	left: 0px;
+
+	padding: 1px 2px;
+	border-radius: 4px;
+
+	opacity: 0;
+	letter-spacing: 1px;
+	background-color: #00000045;
+	font-family: $font-book;
+	font-size: $third;
+	z-index: 35;
+	transition: all 0.3s ease;
+}
+.duration-pf {
+	position: absolute;
+	top: -30px;
+	right: 0px;
+
+	padding: 1px 2px;
+	border-radius: 4px;
+
+	opacity: 0;
+	letter-spacing: 1px;
+	background-color: #00000045;
+	font-family: $font-book;
+	font-size: $third;
+	transition: all 0.3s ease;
+}
+.progress-pf {
+	position: relative;
+	&:hover .progress-line-pf::after {
+		transform: scale(1);
+	}
+	&:hover .duration-pf {
+		opacity: 1;
+	}
+	&:hover .current-time-pf {
+		opacity: 1;
+	}
+}
+.progress-line__wrapper-pf {
+	height: 5px;
+	width: 100%;
+	background-color: $progress_wrapper;
+	cursor: pointer;
+	
+}
+.progress-line-pf {
+	position: relative;
+	// width: 60%;
+	height: 5px;
+
+	border-radius: 1px;
+	background-color: $progress_line;
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: -5px;
+		right: -2.5px;
+
+		height: 16px;
+		width: 5px;
+		transform: scale(0);
+		border-radius: 4px;
+		background-color: $progress_line;
+		transition: all 0.3s ease;
+	}
+}
+
+
+// Ряд кнопок управления плеером
+.control__panel {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+.control__panel-left {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 13px;
+	div {
+		padding: 10px;
+		border: 1px solid transparent;
+	}
+	.control__elem--active {
+		border: 1px solid #888888;
+	}
+}
+.control__panel-right {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 13px;
+	div:not(#volume__wrapper):not(#volume__line-pf):not(#volume__line) {
+		padding: 10px;
+	}
+	#volumeIcon {
+		padding-right: 0px !important;
+	}
+}
+.control__elem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	// height: 37px;
+	// width: 37px;
+	cursor: pointer;
+	background: transparent;
+	transition: all 0.2s ease;
+	&:hover {
+		transform: scale(1.15);
+	}
+	&:active {
+		transform: scale(1);
+	}
+}
+
+// Стили кнопок по отдельности
+#back-song img,
+#next-song img {
+	width: 12px;
+	height: 12px;
+	min-width: 12px;
+	min-height: 12px;
+}
+#pause img {
+	width: 15px;
+	height: 15px;
+	min-width: 15px;
+	min-height: 15px;
+}
+#mix-song img {
+	width: 17px;
+	height: 17px;
+	min-width: 17px;
+	min-height: 17px;
+}
+#repeat-song img {
+	width: 18px;
+	height: 18px;
+	min-width: 18px;
+	min-height: 18px;
+}
+#like-song {
+	svg {
+		width: 17px;
+		height: 17px;
+		min-width: 17px;
+		min-height: 17px;
+		pointer-events: none;
+		&:nth-child(2) {
+			display: none;
+		}
+	}
+	&.clicked {
+		svg:nth-child(1) {
+			display: none;
+		}
+		svg:nth-child(2) {
+			display: unset;
+		}
+	}
+}
+#dislike-song {
+	svg {
+		width: 20px;
+		height: 20px;
+		min-width: 20px;
+		min-height: 20px;
+		pointer-events: none;
+		&:nth-child(2) {
+			display: none;
+		}
+	}
+	&.clicked {
+		svg:nth-child(1) {
+			display: none;
+		}
+		svg:nth-child(2) {
+			display: unset;
+		}
+	}
+}
+#totalPlaylist img {
+	width: 14px;
+	height: 14px;
+	min-width: 14px;
+	min-height: 14px;
+}
+#totalDevice img {
+	width: 16px;
+	height: 16px;
+	min-width: 16px;
+	min-height: 16px;
+}
+#volumeIcon img {
+	width: 20px;
+	height: 20px;
+	min-width: 20px;
+	min-height: 20px;
+}
+#reducePlayer img {
+	width: 17px;
+	height: 17px;
+	min-width: 17px;
+	min-height: 17px;
+	&:hover {
+		transform: scale(1.25);
+	}
+	&:active {
+		transform: scale(1);
+	}
+}
+
+// Линия громкости 
+#volume__wrapper {
+	display: flex;
+	align-items: center;
+}
+#volume__line-pf {
+	position: relative;
+	width: 119px;
+	height: 5px;
+	border-radius: 4px;
+	background-color: $progress_wrapper;
+	cursor: pointer;
+	&:hover #volume__line::after {
+		transform: scale(1);
+	}
+	@include mediaDecstop {
+		width:  79px;
+	}
+	@include mediaTablet {
+		width:  69px;
+	}
+	@include mediaMobile {
+		width:  59px;
+	}
+}
+#volume__line {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 60%;
+	border-radius: 4px;
+	background-color: $progress_line;
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: -3px;
+		right: -2.5px;
+
+		height: 12px;
+		width: 5px;
+		transform: scale(0);
+		border-radius: 4px;
+		background-color: $progress_line;
+		transition: all 0.3s ease;
+	}
+}

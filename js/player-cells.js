@@ -7,7 +7,6 @@ window.addEventListener('resize', widthControl)
 function widthControl() {
 	outer_cells.forEach(elem => {
 		let cellHeigth = elem.offsetHeight
-		console.log('height: ', cellHeigth)
 		elem.style.width = `${cellHeigth}px`
 	});
 }
@@ -92,16 +91,37 @@ outer_cells.forEach(cell => {
 
 // Смена лайка
 const like = document.querySelector('.song__like')
+const dislike = document.querySelector('.song__dislike')
 
 like.addEventListener('click', likeChange)
+dislike.addEventListener('click', dislikeChange)
+
 function likeChange() {
-	const likeImg = like.querySelector('img')
-	if (likeImg.classList.contains('liked')) {
-		likeImg.src = './img/player/like_empty.svg'
-		likeImg.classList.remove('liked')
-	} else {
-		likeImg.src = './img/player/like.svg'
-		likeImg.classList.add('liked')
+	if (!like.classList.contains('clicked')) {
+		like.classList.add('clicked')
+		like_FP.classList.add('clicked')
+		if (dislike.classList.contains('clicked')) {
+			dislike.classList.remove('clicked')
+			dislike_FP.classList.remove('clicked')
+		}
+	}
+	else if (like.classList.contains('clicked')) {
+		like.classList.remove('clicked')
+		like_FP.classList.remove('clicked')
+	}
+}
+function dislikeChange() {
+	if (!dislike.classList.contains('clicked')) {
+		dislike.classList.add('clicked')
+		dislike_FP.classList.add('clicked')
+		if (like.classList.contains('clicked')) {
+			like.classList.remove('clicked')
+			like_FP.classList.remove('clicked')
+		}
+	}
+	else if (dislike.classList.contains('clicked')) {
+		dislike.classList.remove('clicked')
+		dislike_FP.classList.remove('clicked')
 	}
 }
 
@@ -116,12 +136,15 @@ function mixChange() {
 	if (innerMix.classList.contains('active')) {
 		innerMix.style.background = '#181818'
 		innerMix.classList.toggle('active')
+
+		mixFP.classList.toggle('control__elem--active')
 	} else {
 		innerMix.style.background = '#3b3b3b'
 		innerMix.classList.toggle('active')
+
+		mixFP.classList.toggle('control__elem--active')
 	}
 }
-
 
 
 
@@ -133,39 +156,53 @@ let repeatIndex = 0;
 repeat.addEventListener('click', repeatChange)
 function repeatChange() {
 	const repeatImg = repeat.querySelector('img')
+	const repeatImg_FP = repeatFP.querySelector('img')
 	repeatIndex = (repeatIndex + 1) % repeatOptions.length
     repeatImg.src = `./img/player/${repeatOptions[repeatIndex]}.svg`
+    repeatImg_FP.src = `./img/player/${repeatOptions[repeatIndex]}.svg`
 	
 	const innerRepeat = repeat.querySelector('.inner__cell')
 	if (repeatIndex == 0) {
 		innerRepeat.style.background = '#181818'
 		innerRepeat.classList.remove('active')
+
+		repeatFP.classList.remove('control__elem--active')
 	} else {
 		innerRepeat.style.background = '#3b3b3b'
 		innerRepeat.classList.add('active')
+
+		repeatFP.classList.add('control__elem--active')
 	}
 }
-
 
 
 
 // Смена кнопки плея
-const pause = document.querySelector('.pause__song')
+const play_stop = document.querySelector('.pause__song')
 
-pause.addEventListener('click', pauseChange)
-function pauseChange() {
-	const pauseImg = pause.querySelector('img')
+play_stop.addEventListener('click', changePlayStop_FP)
+function changePlayStop_FP() {
+	const pauseImg = play_stop.querySelector('img')
 	if (!pauseImg.classList.contains('paused')) {
+		// Смена на основном плеере
 		pauseImg.src = './img/player/play.svg'
 		pauseImg.classList.toggle('paused')
+		// Смена на расширенном плеере
+		play_stop_FP.querySelector('img').src = "./img/player/play.svg"
+		play_stop_FP.classList.toggle('stop')
 	} else {
+		// Смена на основном плеере
 		pauseImg.src = './img/player/pause.svg'
 		pauseImg.classList.toggle('paused')
+		// Смена на расширенном плеере
+		play_stop_FP.querySelector('img').src = "./img/player/pause.svg"
+		play_stop_FP.classList.toggle('stop')
 	}
 }
 
 
 
+// Громкость плеера
 
 // Смена кнопки громкости
 const volumeImg = document.querySelector('.volumeImg')
@@ -178,7 +215,7 @@ const volume_container = document.querySelector('.volume__container')
 let volumeValue = 0.5
 volumeLine.style.width = `${volumeValue * 100}%`
 
-// Параметры ширины у блоков громкости\
+// Параметры ширины у блоков громкости
 var volumeLine_width = volumeLine.offsetWidth
 var volumeWrapper_width = volumeWrapper.offsetWidth
 var volumeFullness = volumeLine_width / volumeWrapper_width
@@ -195,7 +232,6 @@ function volumeMute() {
 		volume_image.src = './img/player/volume.svg'
 		volume_image.classList.remove('muted')
 		volumeLine.style.width = `${volumeValue * 100}%`
-		console.log('volumeValue: ', volumeValue)
 	} else {
 		volume_image.src = './img/player/mute.svg'
 		volume_image.classList.add('muted')
@@ -204,7 +240,7 @@ function volumeMute() {
 	}
 }
 
-// Контроль линии громкости
+// Контроль линии
 function volumeChange(e) {
 	const rect = volumeWrapper.getBoundingClientRect();
 	let mouseX = e.clientX - rect.left + 1;
@@ -223,9 +259,6 @@ function volumeChange(e) {
 		volume_image.src = './img/player/volume.svg'
 		volume_image.classList.remove('muted')
 	}
-	// const rectRange = volumeLine.getBoundingClientRect();
-	// audio.volume = (Math.round(((rectRange.right - rectRange.left) / 119) * 100)) / 100;
-	// console.log('volume: ' + audio.volume)
 }
 volumeWrapper.addEventListener('mousedown', (e) => {
 	const rect = volumeWrapper.getBoundingClientRect();
@@ -254,22 +287,22 @@ volumeWrapper.addEventListener('mousedown', (e) => {
 	// console.log('volume: ' + audio.volume)
 })
 
-
-
 // Наведение на иконку и линию громкости при ширине экрана <=780px
 const volume = document.querySelector('.volume')
 var containerStatus = false
 var imgStatus = false
 let volumeImgTimer
 let volumeLineTimer
-volumeImg.addEventListener('mouseenter', imgAppear)
 volume.addEventListener('mouseenter', (e) => {
-    e.stopPropagation();
+	e.stopPropagation();
 })
 volumeLine.addEventListener('mouseenter', (e) => {
-    e.stopPropagation();
+	e.stopPropagation();
 })
+
 // Наведение на иконку
+volumeImg.addEventListener('mouseenter', imgAppear)
+
 function imgAppear() {
 	if (document.documentElement.clientWidth <= 780) {
 		imgStatus = true
@@ -277,9 +310,9 @@ function imgAppear() {
 		clearTimeout(volumeImgTimer)
 		volume_container.addEventListener('mouseenter', containerAppear)
 		volumeImg.addEventListener('mouseleave', imgDisappear)
+	} else {
+		volume_container.style.opacity = '1'
 	}
-	console.log('containerStatus: ', containerStatus)
-	console.log('imgStatus: ', imgStatus)
 }
 function imgDisappear() {
 	if (document.documentElement.clientWidth <= 780) {
@@ -289,9 +322,9 @@ function imgDisappear() {
 				volume_container.style.opacity = '0'
 			}
 		}, 1500)
+	} else {
+		volume_container.style.opacity = '1'
 	}
-	console.log('containerStatus: ', containerStatus)
-	console.log('imgStatus: ', imgStatus)
 }
 // Наведение на линию
 function containerAppear() {
@@ -299,8 +332,6 @@ function containerAppear() {
 	volume_container.style.opacity = '1'
 	clearTimeout(volumeLineTimer)
 	volume_container.addEventListener('mouseleave', containerDisappear)
-	console.log('containerStatus: ', containerStatus)
-	console.log('imgStatus: ', imgStatus)
 }
 function containerDisappear() {
 	containerStatus = false
@@ -310,6 +341,80 @@ function containerDisappear() {
 			volume_container.removeEventListener('mouseenter', containerAppear)
 		}
 	}, 1500);
-	console.log('containerStatus: ', containerStatus)
-	console.log('imgStatus: ', imgStatus)
 }
+
+
+// Контроль линии трека
+const progressLine_wrapper = document.querySelector('.progress-line_wrapper')
+const progressLine = document.querySelector('.progress-line')
+const progressLine_wrapper_pf = document.querySelector('.progress-line__wrapper-pf')
+const progressLine_pf = document.querySelector('.progress-line-pf')
+
+// Переменная для хранения прогресса трека
+let progressValue = 0.5
+progressLine.style.width = `${progressValue * 100}%`
+progressLine_pf.style.width = `${progressValue * 100}%`
+
+// Параметры ширины у блока прогресса
+var progressLine_width = progressLine.offsetWidth
+var progressLine_wrapper_width = progressLine_wrapper.offsetWidth
+var progressFullness = progressLine_width / progressLine_wrapper_width
+
+var progressLine_pf_width = progressLine_pf.offsetWidth
+var progressLine_wrapper_pf_width = progressLine_wrapper_pf.offsetWidth
+var progressFullness_pf = progressLine_pf_width / progressLine_wrapper_pf_width
+document.addEventListener('resize', () => {
+	progressLine_width = progressLine.offsetWidth
+	progressLine_wrapper_width = progressLine_wrapper.offsetWidth
+	progressFullness = progressLine_width / progressLine_wrapper_width
+
+	progressLine_pf_width = progressLine_pf.offsetWidth
+	progressLine_wrapper_pf_width = progressLine_wrapper_pf.offsetWidth
+	progressFullness_pf = progressLine_pf_width / progressLine_wrapper_pf_width
+})
+
+function progressChange(e) {
+	progressLine_width = progressLine.offsetWidth
+	progressLine_wrapper_width = progressLine_wrapper.offsetWidth
+	progressFullness = progressLine_width / progressLine_wrapper_width
+	progressLine_pf_width = progressLine_pf.offsetWidth
+	progressLine_wrapper_pf_width = progressLine_wrapper_pf.offsetWidth
+	progressFullness_pf = progressLine_pf_width / progressLine_wrapper_pf_width
+
+	const rect = progressLine_wrapper.getBoundingClientRect();
+	let mouseX = e.clientX - rect.left + 1;
+
+	if (mouseX <= progressLine_wrapper_width) {
+		progressLine.style.width = `${(mouseX / progressLine_wrapper_width) * 100}%`;
+		progressLine_pf.style.width = `${(progressFullness * 100)}%`;
+	}
+	if (mouseX > progressLine_wrapper_width) {
+		progressLine.style.width = `100%`;
+		progressLine_pf.style.width = `100%`;
+	}
+}
+progressLine_wrapper.addEventListener('mousedown', (e) => {
+	progressLine_width = progressLine.offsetWidth
+	progressLine_wrapper_width = progressLine_wrapper.offsetWidth
+	progressFullness = progressLine_width / progressLine_wrapper_width
+	progressLine_pf_width = progressLine_pf.offsetWidth
+	progressLine_wrapper_pf_width = progressLine_wrapper_pf.offsetWidth
+	progressFullness_pf = progressLine_pf_width / progressLine_wrapper_pf_width
+
+	const rect = progressLine_wrapper.getBoundingClientRect();
+	let mouseX = e.clientX - rect.left + 1;
+
+	if (mouseX <= progressLine_wrapper_width) {
+		progressLine.style.width = `${mouseX}px`;
+		progressLine_pf.style.width = `${(mouseX / progressLine_wrapper_width) * 100}%`;
+	}
+	if (mouseX > progressLine_wrapper_width) {
+		progressLine.style.width = `100%`;
+		progressLine_pf.style.width = `100%`;
+	}
+	
+	document.addEventListener('mousemove', progressChange)
+	document.addEventListener('mouseup', () => {
+		document.removeEventListener('mousemove', progressChange);
+	})
+})
