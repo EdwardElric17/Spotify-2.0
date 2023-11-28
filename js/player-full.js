@@ -1,16 +1,3 @@
-// Контроль ширины блоков в плеере
-// const control_elems = document.querySelectorAll('.control__elem')
-
-// widthControl_pf()
-// window.addEventListener('resize', widthControl_pf)
-// function widthControl_pf() {
-// 	control_elems.forEach(elem => {
-// 		let cellHeigth = elem.offsetHeight
-// 		elem.style.width = `${cellHeigth}px`
-// 		// console.log('cellHeigth: ', elem.offsetHeight)
-// 	});
-// }
-
 // Кнопка расширения и уменьшения плеера
 const reduceButton = document.querySelector('#reducePlayer')
 const expandButton = document.querySelector('.expandPlayer')
@@ -207,3 +194,114 @@ progressLine_wrapper_pf.addEventListener('mousedown', (e) => {
 	})
 })
 
+
+
+// Громкость плеера
+
+// Смена кнопки громкости
+const volumeImg_pf = document.querySelector('#volumeIcon')
+const volumeWrapper_pf = document.querySelector('#volume__line-pf')
+const volumeLine_pf = document.querySelector('#volume__line')
+const volume_image_pf = volumeImg_pf.querySelector('img')
+
+// Переменная для хранения громкости
+volumeLine_pf.style.width = `${volumeValue * 100}%`
+
+// Параметры ширины у блоков громкости
+var volumeLine_width_pf = volumeLine_pf.offsetWidth
+var volumeWrapper_width_pf = volumeWrapper.offsetWidth
+var volumeFullness_pf = volumeLine_width_pf / volumeWrapper_width_pf
+document.addEventListener('resize', () => {
+	volumeLine_width_pf = volumeLine_pf.offsetWidth
+	volumeWrapper_width_pf = volumeWrapper.offsetWidth
+	volumeFullness_pf = volumeLine_width_pf / volumeWrapper_width_pf
+})
+
+// Вкл\Выкл при нажатиии на иконку громкости 
+volumeImg_pf.addEventListener('click', volumeMute_pf) 	
+function volumeMute_pf() {
+	if (volume_image_pf.classList.contains('muted')) {
+		volume_image_pf.src = './img/player/volume.svg'
+		volume_image_pf.classList.remove('muted')
+		volumeLine_pf.style.width = `${volumeValue * 100}%`
+
+		volume_image.src = './img/player/volume.svg'
+		volume_image.classList.remove('muted')
+		volumeLine.style.width = `${volumeValue * 100}%`
+	} else {
+		volume_image_pf.src = './img/player/mute.svg'
+		volume_image_pf.classList.add('muted')
+		volumeValue = volumeLine_pf.offsetWidth / volumeWrapper_width_pf
+		volumeLine_pf.style.width = `0%`
+		
+		volume_image.src = './img/player/mute.svg'
+		volume_image.classList.add('muted')
+		volumeLine.style.width = `0%`
+	}
+}
+
+// Контроль линии
+function volumeChange_pf(e) {
+	const rect = volumeWrapper_pf.getBoundingClientRect();
+	let mouseX = e.clientX - rect.left + 1;
+	if (mouseX <= volumeWrapper_width) {
+		volumeLine_pf.style.width = `${(mouseX / volumeWrapper_width_pf) * 100}%`;
+
+		volumeLine.style.width = `${(mouseX / volumeWrapper_width_pf) * 100}%`;
+	}
+	if (mouseX > volumeWrapper_width_pf) {
+		volumeLine_pf.style.width = `100%`;
+
+		volumeLine.style.width = `100%`;
+	}
+	if (mouseX < 1) {
+		volumeLine_pf.style.width = `0%`;
+		volumeValue_pf = volumeLine_pf.offsetWidth / volumeWrapper_width_pf
+		volume_image_pf.src = './img/player/mute.svg'
+		volume_image_pf.classList.add('muted')
+
+		volumeLine.style.width = `0%`;
+		volume_image.src = './img/player/mute.svg'
+		volume_image.classList.add('muted')
+	} else {
+		volume_image_pf.src = './img/player/volume.svg'
+		volume_image_pf.classList.remove('muted')
+
+		volume_image.src = './img/player/volume.svg'
+		volume_image.classList.remove('muted')
+	}
+}
+volumeWrapper_pf.addEventListener('mousedown', (e) => {
+	const rect = volumeWrapper_pf.getBoundingClientRect();
+	let mouseX = e.clientX - rect.left + 1;
+	if (mouseX <= volumeWrapper_width_pf) {
+		volumeLine_pf.style.width = `${mouseX}px`;
+
+		volumeLine.style.width = `${mouseX}px`;
+	}
+	if (mouseX > volumeWrapper_width_pf) {
+		volumeLine_pf.style.width = `100%`;
+
+		volumeLine.style.width = `100%`;
+	}
+	if (mouseX < 1) {
+		volumeLine_pf.style.width = `0px`;
+		volume_image_pf.src = './img/player/mute.svg'
+		volume_image_pf.classList.add('muted')
+
+		volumeLine.style.width = `0px`;
+		volume_image.src = './img/player/mute.svg'
+		volume_image.classList.add('muted')
+	} else {
+		volume_image_pf.src = './img/player/volume.svg'
+		volume_image_pf.classList.remove('muted')
+
+		volume_image.src = './img/player/volume.svg'
+		volume_image.classList.remove('muted')
+	}
+	
+	document.addEventListener('mousemove', volumeChange_pf)
+	document.addEventListener('mouseup', () => {
+		document.removeEventListener('mousemove', volumeChange_pf);
+	})
+})

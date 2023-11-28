@@ -232,11 +232,19 @@ function volumeMute() {
 		volume_image.src = './img/player/volume.svg'
 		volume_image.classList.remove('muted')
 		volumeLine.style.width = `${volumeValue * 100}%`
+
+		volume_image_pf.src = './img/player/volume.svg'
+		volume_image_pf.classList.remove('muted')
+		volumeLine_pf.style.width = `${volumeValue * 100}%`
 	} else {
 		volume_image.src = './img/player/mute.svg'
 		volume_image.classList.add('muted')
 		volumeValue = volumeLine.offsetWidth / volumeWrapper_width
 		volumeLine.style.width = `0%`
+
+		volume_image_pf.src = './img/player/mute.svg'
+		volume_image_pf.classList.add('muted')
+		volumeLine_pf.style.width = `0%`
 	}
 }
 
@@ -246,18 +254,29 @@ function volumeChange(e) {
 	let mouseX = e.clientX - rect.left + 1;
 	if (mouseX <= volumeWrapper_width) {
 		volumeLine.style.width = `${(mouseX / volumeWrapper_width) * 100}%`;
+
+		volumeLine_pf.style.width = `${(mouseX / volumeWrapper_width) * 100}%`;
 	}
 	if (mouseX > volumeWrapper_width) {
 		volumeLine.style.width = `100%`;
+
+		volumeLine_pf.style.width = `100%`;
 	}
 	if (mouseX < 1) {
 		volumeLine.style.width = `0%`;
 		volumeValue = volumeLine.offsetWidth / volumeWrapper_width
 		volume_image.src = './img/player/mute.svg'
 		volume_image.classList.add('muted')
+		
+		volumeLine_pf.style.width = `0%`;
+		volume_image_pf.src = './img/player/mute.svg'
+		volume_image_pf.classList.add('muted')
 	} else {
 		volume_image.src = './img/player/volume.svg'
 		volume_image.classList.remove('muted')
+
+		volume_image_pf.src = './img/player/volume.svg'
+		volume_image_pf.classList.remove('muted')
 	}
 }
 volumeWrapper.addEventListener('mousedown', (e) => {
@@ -265,26 +284,34 @@ volumeWrapper.addEventListener('mousedown', (e) => {
 	let mouseX = e.clientX - rect.left + 1;
 	if (mouseX <= volumeWrapper_width) {
 		volumeLine.style.width = `${mouseX}px`;
+
+		volumeLine_pf.style.width = `${mouseX}px`;
 	}
 	if (mouseX > volumeWrapper_width) {
 		volumeLine.style.width = `100%`;
+
+		volumeLine_pf.style.width = `100%`;
 	}
 	if (mouseX < 1) {
 		volumeLine.style.width = `0px`;
 		volume_image.src = './img/player/mute.svg'
 		volume_image.classList.add('muted')
+
+		volumeLine_pf.style.width = `0px`;
+		volume_image_pf.src = './img/player/mute.svg'
+		volume_image_pf.classList.add('muted')
 	} else {
 		volume_image.src = './img/player/volume.svg'
 		volume_image.classList.remove('muted')
+
+		volume_image_pf.src = './img/player/volume.svg'
+		volume_image_pf.classList.remove('muted')
 	}
 	
 	document.addEventListener('mousemove', volumeChange)
 	document.addEventListener('mouseup', () => {
 		document.removeEventListener('mousemove', volumeChange);
 	})
-	// const rectRange = volumeLine.getBoundingClientRect();
-	// audio.volume = (Math.round(((rectRange.right - rectRange.left) / 119) * 100)) / 100;
-	// console.log('volume: ' + audio.volume)
 })
 
 // Наведение на иконку и линию громкости при ширине экрана <=780px
