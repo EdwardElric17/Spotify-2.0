@@ -1800,6 +1800,11 @@ hr {
   display: -ms-flexbox !important;
   display: flex !important;
 }
+@media screen and (max-width: 780px) {
+  .player__full {
+    padding-bottom: 10px;
+  }
+}
 
 .noise-bg {
   position: absolute;
@@ -2013,15 +2018,25 @@ hr {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+@media screen and (max-width: 780px) {
+  .control__panel {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .control__panel-left {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2042,19 +2057,38 @@ hr {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-flow: wrap;
+      flex-flow: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  gap: 13px;
 }
 .control__panel-right div:not(#volume__wrapper):not(#volume__line-pf):not(#volume__line) {
   padding: 10px;
 }
 .control__panel-right #volumeIcon {
   padding-right: 0px !important;
+}
+@media screen and (max-width: 780px) {
+  .control__panel-right {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+}
+
+.control__panel-right div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  gap: 13px;
 }
 
 .control__elem {
@@ -2081,35 +2115,106 @@ hr {
           transform: scale(1);
 }
 
-#back-song img,
-#next-song img {
+#back-song {
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
+}
+#back-song img {
   width: 12px;
   height: 12px;
   min-width: 12px;
   min-height: 12px;
 }
+@media screen and (max-width: 780px) {
+  #back-song {
+    -webkit-box-ordinal-group: 2;
+        -ms-flex-order: 1;
+            order: 1;
+  }
+}
 
+#pause {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
 #pause img {
   width: 15px;
   height: 15px;
   min-width: 15px;
   min-height: 15px;
 }
-
-#mix-song img {
-  width: 17px;
-  height: 17px;
-  min-width: 17px;
-  min-height: 17px;
+@media screen and (max-width: 780px) {
+  #pause {
+    -webkit-box-ordinal-group: 3;
+        -ms-flex-order: 2;
+            order: 2;
+  }
 }
 
+#next-song {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+#next-song img {
+  width: 12px;
+  height: 12px;
+  min-width: 12px;
+  min-height: 12px;
+}
+@media screen and (max-width: 780px) {
+  #next-song {
+    -webkit-box-ordinal-group: 4;
+        -ms-flex-order: 3;
+            order: 3;
+  }
+}
+
+#repeat-song {
+  -webkit-box-ordinal-group: 4;
+      -ms-flex-order: 3;
+          order: 3;
+}
 #repeat-song img {
   width: 18px;
   height: 18px;
   min-width: 18px;
   min-height: 18px;
 }
+@media screen and (max-width: 780px) {
+  #repeat-song {
+    -webkit-box-ordinal-group: 1;
+        -ms-flex-order: 0;
+            order: 0;
+  }
+}
 
+#mix-song {
+  -webkit-box-ordinal-group: 5;
+      -ms-flex-order: 4;
+          order: 4;
+}
+#mix-song img {
+  width: 17px;
+  height: 17px;
+  min-width: 17px;
+  min-height: 17px;
+}
+@media screen and (max-width: 780px) {
+  #mix-song {
+    -webkit-box-ordinal-group: 5;
+        -ms-flex-order: 4;
+            order: 4;
+  }
+}
+
+#like-song {
+  -webkit-box-ordinal-group: 6;
+      -ms-flex-order: 5;
+          order: 5;
+}
 #like-song svg {
   width: 17px;
   height: 17px;
@@ -2126,7 +2231,19 @@ hr {
 #like-song.clicked svg:nth-child(2) {
   display: unset;
 }
+@media screen and (max-width: 780px) {
+  #like-song {
+    -webkit-box-ordinal-group: 0;
+        -ms-flex-order: -1;
+            order: -1;
+  }
+}
 
+#dislike-song {
+  -webkit-box-ordinal-group: 7;
+      -ms-flex-order: 6;
+          order: 6;
+}
 #dislike-song svg {
   width: 20px;
   height: 20px;
@@ -2150,6 +2267,19 @@ hr {
   min-width: 14px;
   min-height: 14px;
 }
+@media screen and (max-width: 780px) {
+  #totalPlaylist {
+    position: absolute;
+    top: 0px;
+    right: 15px;
+  }
+  #totalPlaylist img {
+    width: 17px;
+    height: 17px;
+    min-width: 17px;
+    min-height: 17px;
+  }
+}
 
 #totalDevice img {
   width: 16px;
@@ -2157,12 +2287,30 @@ hr {
   min-width: 16px;
   min-height: 16px;
 }
+@media screen and (max-width: 780px) {
+  #totalDevice {
+    position: absolute;
+    bottom: 10px;
+    left: 7px;
+  }
+  #totalDevice img {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+  }
+}
 
 #volumeIcon img {
   width: 20px;
   height: 20px;
   min-width: 20px;
   min-height: 20px;
+}
+@media screen and (max-width: 780px) {
+  #volumeIcon img {
+    display: none;
+  }
 }
 
 #reducePlayer img {
@@ -2179,6 +2327,29 @@ hr {
   -webkit-transform: scale(1);
           transform: scale(1);
 }
+@media screen and (max-width: 780px) {
+  #reducePlayer {
+    position: absolute;
+    bottom: 10px;
+    right: 20px;
+    -webkit-transition: all 0.5s ease !important;
+    transition: all 0.5s ease !important;
+  }
+  #reducePlayer img {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+  }
+  #reducePlayer:hover {
+    -webkit-transform: scale(1) !important;
+            transform: scale(1) !important;
+  }
+  #reducePlayer:active {
+    -webkit-transform: scale(1) !important;
+            transform: scale(1) !important;
+  }
+}
 
 #volume__wrapper {
   display: -webkit-box;
@@ -2187,6 +2358,11 @@ hr {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media screen and (max-width: 780px) {
+  #volume__wrapper {
+    display: none;
+  }
 }
 
 #volume__line-pf {
