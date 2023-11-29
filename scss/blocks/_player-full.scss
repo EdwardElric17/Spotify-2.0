@@ -1,0 +1,524 @@
+// Основной стиль секции
+.player__full {
+	display: none !important;
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	padding: 10px 45px 20px 40px;
+	width: 100vw;
+	height: 100vh;
+
+	background-color: $player-full;
+	backdrop-filter: blur(80px);
+
+	z-index: 30;
+	&--full {
+		display: flex !important;
+	}
+	// @include mediaTablet {
+	// 	padding-bottom: 10px;
+	// }
+}
+// PNG изображения шума
+.noise-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+
+	width: 100%;
+	height: 100%;
+
+	pointer-events: none;
+	opacity: 0.05;
+}
+
+
+// Части плеера
+.player__full-top {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 5px;
+	margin: 0px auto;
+}
+.player__full-bottom {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+
+// Кнопка назад
+.arrow-back {
+	position: absolute;
+	left: 10px;
+	top: 10px;
+	height: 22px;
+	width: 22px;
+	cursor: pointer;
+	
+	background: transparent;
+	transform: rotate(180deg);
+	transition: all 0.3s ease;
+
+	&:hover img{
+		transform: scale(1.07);
+	}
+	&:active img{
+		transform: scale(1);
+	}
+}
+
+// Верхняя часть плеера
+.player__full-preview {
+	background-image: url('/img/player-full/preview.jpg');
+	background-size: cover;
+	
+	width: 350px;
+	height: 350px;
+	border-radius: 20px;
+	@include mediaTablet {
+		width: 300px;
+		height: 300px;
+	}
+	@include mediaMobile {
+		width: 250px;
+		height: 250px;
+	}
+}
+.player__full-name__options {
+	display: flex;
+	justify-content: space-between;
+	padding: 5px;
+	.song__name {
+		display: flex;
+		flex-direction: column;
+		gap: 3px;
+	}
+	.song__title {
+		font-size: $primal;
+		cursor: pointer;
+		transition: all 0.1s ease;
+		&:hover {
+			filter: brightness(0.8);
+		}
+		@include mediaTablet {
+			font-size: $primal-mobile;
+		}
+	}
+	.song__artist {
+		font-size: $third;
+		cursor: pointer;
+		transition: all 0.1s ease;
+		&:hover {
+			filter: brightness(0.8);
+		}
+		@include mediaTablet {
+			font-size: $third-mobile;
+		}
+	}
+}
+.options {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	background: transparent;
+	transition: all 0.3s ease;
+	&:hover img{
+		transform: scale(1.07);
+	}
+	&:active img{
+		transform: scale(1);
+	}
+	.options__img {
+		height: 35px;
+		width: 35px;
+		@include mediaTablet {
+			height: 30px;
+			width: 30px;
+		}
+		@include mediaMobile {
+			height: 25px;
+			width: 25px;
+		}
+	}
+}
+
+// Линия прогресса трека
+.current-time-pf {
+	position: absolute;
+	top: -30px;
+	left: 0px;
+
+	padding: 1px 2px;
+	border-radius: 4px;
+
+	opacity: 0;
+	letter-spacing: 1px;
+	background-color: #00000045;
+	font-family: $font-book;
+	font-size: $third;
+	z-index: 35;
+	transition: all 0.3s ease;
+	@include mediaTablet {
+		font-size: $third-tablet;
+	}
+	@include mediaMobile {
+		font-size: $third-mobile;
+	}
+}
+.duration-pf {
+	position: absolute;
+	top: -30px;
+	right: 0px;
+
+	padding: 1px 2px;
+	border-radius: 4px;
+
+	opacity: 0;
+	letter-spacing: 1px;
+	background-color: #00000045;
+	font-family: $font-book;
+	font-size: $third;
+	transition: all 0.3s ease;
+	@include mediaTablet {
+		font-size: $third-tablet;
+	}
+	@include mediaMobile {
+		font-size: $third-mobile;
+	}
+}
+.progress-pf {
+	position: relative;
+	&:hover .progress-line-pf::after {
+		transform: scale(1);
+	}
+	&:hover .duration-pf {
+		opacity: 1;
+	}
+	&:hover .current-time-pf {
+		opacity: 1;
+	}
+}
+.progress-line__wrapper-pf {
+	height: 5px;
+	width: 100%;
+	background-color: $progress_wrapper;
+	cursor: pointer;
+	
+}
+.progress-line-pf {
+	position: relative;
+	// width: 60%;
+	height: 5px;
+
+	border-radius: 1px;
+	background-color: $progress_line;
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: -5px;
+		right: -2.5px;
+
+		height: 16px;
+		width: 5px;
+		transform: scale(0);
+		border-radius: 4px;
+		background-color: $progress_line;
+		transition: all 0.3s ease;
+	}
+}
+
+
+// Ряд кнопок управления плеером
+.control__panel {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	@include mediaTablet {
+		flex-direction: column;
+	}
+}
+.control__panel-left {
+	display: flex;
+	flex-flow: wrap;
+	align-items: center;
+	justify-content: center;
+	gap: 13px;
+	div {
+		padding: 10px;
+		border: 1px solid transparent;
+	}
+	.control__elem--active {
+		border: 1px solid #888888;
+	}
+}
+.control__panel-right {
+	display: flex;
+	// flex-flow: wrap;
+	align-items: center;
+	justify-content: center;
+	div:not(#volume__wrapper):not(#volume__line-pf):not(#volume__line) {
+		padding: 10px;
+	}
+	#volumeIcon {
+		padding-right: 0px !important;
+	}
+	@include mediaTablet {
+		// display: none;
+		// justify-content: space-between;
+	}
+}
+.control__panel-right div {
+	display: flex;
+	flex-direction: row;
+	gap: 13px;
+}
+.control__elem {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	background: transparent;
+	transition: all 0.2s ease;
+	&:hover {
+		transform: scale(1.15);
+	}
+	&:active {
+		transform: scale(1);
+	}
+}
+
+// Стили кнопок по отдельности
+#back-song {
+	// order: 0;
+	img {
+		width: 12px;
+		height: 12px;
+		min-width: 12px;
+		min-height: 12px;
+	}
+	@include mediaTablet {
+		// order: 1;
+	}
+}
+#pause {
+	// order: 1;
+	img {
+		width: 15px;
+		height: 15px;
+		min-width: 15px;
+		min-height: 15px;
+	}
+	@include mediaTablet {
+		// order: 2;
+	}
+}
+#next-song {
+	// order: 2;
+	img {
+		width: 12px;
+		height: 12px;
+		min-width: 12px;
+		min-height: 12px;
+	}
+	@include mediaTablet {
+		// order: 3;
+	}
+}
+	
+#repeat-song {
+	// order: 3;
+	img {
+		width: 18px;
+		height: 18px;
+		min-width: 18px;
+		min-height: 18px;
+	}
+	@include mediaTablet {
+		// order: 0;
+	}
+} 
+#mix-song {
+	// order: 4;
+	img {
+		width: 17px;
+		height: 17px;
+		min-width: 17px;
+		min-height: 17px;
+	}
+	@include mediaTablet {
+		// order: 4;
+	}
+}
+#like-song {
+	// order: 5;
+	svg {
+		width: 17px;
+		height: 17px;
+		min-width: 17px;
+		min-height: 17px;
+		pointer-events: none;
+		&:nth-child(2) {
+			display: none;
+		}
+	}
+	&.clicked {
+		svg:nth-child(1) {
+			display: none;
+		}
+		svg:nth-child(2) {
+			display: unset;
+		}
+	}
+	@include mediaTablet {
+		// order: -1;
+	}
+	@include mediaMobile {
+		display: none;
+	}
+}
+#dislike-song {
+	// order: 6;
+	svg {
+		width: 20px;
+		height: 20px;
+		min-width: 20px;
+		min-height: 20px;
+		pointer-events: none;
+		&:nth-child(2) {
+			display: none;
+		}
+	}
+	&.clicked {
+		svg:nth-child(1) {
+			display: none;
+		}
+		svg:nth-child(2) {
+			display: unset;
+		}
+	}
+	@include mediaMobile {
+		display: none;
+	}
+}
+#totalPlaylist {
+	img {
+		width: 14px;
+		height: 14px;
+		min-width: 14px;
+		min-height: 14px;
+	}
+	@include mediaTablet {
+		position: absolute;
+		top: 3px;
+		right: 15px;
+		img {
+			width: 17px;
+			height: 17px;
+			min-width: 17px;
+			min-height: 17px;
+		}
+	}
+} 
+#totalDevice {
+	img {
+		width: 16px;
+		height: 16px;
+		min-width: 16px;
+		min-height: 16px;
+	}
+	@include mediaTablet {
+		display: none;
+	}
+} 
+#reducePlayer {
+	margin-left: 10px;
+	img {
+		width: 17px;
+		height: 17px;
+		min-width: 17px;
+		min-height: 17px;
+		transition: all 0.2s ease;
+	}
+	@include mediaTablet {
+		display: none;
+	}
+}
+
+// Линия громкости 
+#volumeIcon img {
+	width: 20px;
+	height: 20px;
+	min-width: 20px;
+	min-height: 20px;
+	// @include mediaTablet {
+	// 	display: none;
+	// }
+}
+.vw {
+	padding: 0 !important;
+	@include mediaTablet {
+		position: absolute;
+		top: 0px;
+		left: 50%;
+		transform: translateX(-56%);
+
+		display: flex;
+		// display: none !important;
+	}
+}
+#volume__wrapper {
+	display: flex;
+	align-items: center;
+	// @include mediaTablet {
+	// 	display: none;
+	// }
+}
+#volume__line-pf {
+	position: relative;
+	width: 119px;
+	height: 5px;
+	border-radius: 4px;
+	background-color: $progress_wrapper;
+	cursor: pointer;
+	&:hover #volume__line::after {
+		transform: scale(1);
+	}
+	@include mediaDecstop {
+		width:  79px;
+	}
+	@include mediaTablet {
+		width:  169px;
+	}
+	@include mediaMobile {
+		width:  159px;
+	}
+}
+#volume__line {
+	position: absolute;
+	left: 0;
+	height: 100%;
+	width: 60%;
+	border-radius: 4px;
+	background-color: $progress_line;
+	&::after {
+		content: '';
+
+		position: absolute;
+		top: -3px;
+		right: -2.5px;
+
+		height: 12px;
+		width: 5px;
+		transform: scale(0);
+		border-radius: 4px;
+		background-color: $progress_line;
+		transition: all 0.3s ease;
+	}
+}

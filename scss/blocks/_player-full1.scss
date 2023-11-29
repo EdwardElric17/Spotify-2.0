@@ -9,7 +9,7 @@
 	flex-direction: column;
 	justify-content: space-between;
 
-	padding: 10px 45px 30px 40px;
+	padding: 10px 45px 10px 40px;
 	width: 100vw;
 	height: 100vh;
 
@@ -205,7 +205,7 @@
 .control__panel {
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
+	justify-content: space-between;
 	@include mediaTablet {
 		flex-direction: column;
 	}
@@ -226,7 +226,7 @@
 }
 .control__panel-right {
 	display: flex;
-	flex-flow: wrap;
+	// flex-flow: wrap;
 	align-items: center;
 	justify-content: center;
 	div:not(#volume__wrapper):not(#volume__line-pf):not(#volume__line) {
@@ -261,7 +261,7 @@
 
 // Стили кнопок по отдельности
 #back-song {
-	order: 0;
+	// order: 0;
 	img {
 		width: 12px;
 		height: 12px;
@@ -269,11 +269,11 @@
 		min-height: 12px;
 	}
 	@include mediaTablet {
-		order: 1;
+		// order: 1;
 	}
 }
 #pause {
-	order: 1;
+	// order: 1;
 	img {
 		width: 15px;
 		height: 15px;
@@ -281,11 +281,11 @@
 		min-height: 15px;
 	}
 	@include mediaTablet {
-		order: 2;
+		// order: 2;
 	}
 }
 #next-song {
-	order: 2;
+	// order: 2;
 	img {
 		width: 12px;
 		height: 12px;
@@ -293,12 +293,12 @@
 		min-height: 12px;
 	}
 	@include mediaTablet {
-		order: 3;
+		// order: 3;
 	}
 }
 	
 #repeat-song {
-	order: 3;
+	// order: 3;
 	img {
 		width: 18px;
 		height: 18px;
@@ -306,11 +306,11 @@
 		min-height: 18px;
 	}
 	@include mediaTablet {
-		order: 0;
+		// order: 0;
 	}
 } 
 #mix-song {
-	order: 4;
+	// order: 4;
 	img {
 		width: 17px;
 		height: 17px;
@@ -318,11 +318,11 @@
 		min-height: 17px;
 	}
 	@include mediaTablet {
-		order: 4;
+		// order: 4;
 	}
 }
 #like-song {
-	order: 5;
+	// order: 5;
 	svg {
 		width: 17px;
 		height: 17px;
@@ -342,11 +342,11 @@
 		}
 	}
 	@include mediaTablet {
-		order: -1;
+		// order: -1;
 	}
 }
 #dislike-song {
-	order: 6;
+	// order: 6;
 	svg {
 		width: 20px;
 		height: 20px;
@@ -393,15 +393,16 @@
 		min-height: 16px;
 	}
 	@include mediaTablet {
-		position: absolute;
-		bottom: 10px;
-		left: 7px;
-		img {
-			width: 20px;
-			height: 20px;
-			min-width: 20px;
-			min-height: 20px;
-		}
+		display: none;
+		// position: absolute;
+		// bottom: 10px;
+		// left: 7px;
+		// img {
+		// 	width: 20px;
+		// 	height: 20px;
+		// 	min-width: 20px;
+		// 	min-height: 20px;
+		// }
 	}
 } 
 #volumeIcon img {
@@ -419,30 +420,25 @@
 		height: 17px;
 		min-width: 17px;
 		min-height: 17px;
-		&:hover {
-			transform: scale(1.25);
-		}
-		&:active {
-			transform: scale(1);
-		}
+		transition: all 0.2s ease;
 	}
 	@include mediaTablet {
-		position: absolute;
-		bottom: 10px;
-		right: 20px;
-		transition: all 0.5s ease !important;
-		img {
-			width: 20px;
-			height: 20px;
-			min-width: 20px;
-			min-height: 20px;
-		}
-		&:hover {
-			transform: scale(1) !important;
-		}
-		&:active {
-			transform: scale(1) !important;
-		}
+		display: none;
+		// position: absolute;
+		// bottom: 10px;
+		// right: 20px;
+		// img {
+		// 	width: 21px;
+		// 	height: 21px;
+		// 	min-width: 21px;
+		// 	min-height: 21px;
+		// }
+		// &:hover img {
+		// 	transform: scale(1.05) !important;
+		// }
+		// &:active img {
+		// 	transform: scale(1) !important;
+		// }
 	}
 }
 

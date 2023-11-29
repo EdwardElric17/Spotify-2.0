@@ -22,6 +22,9 @@
 	@include mediaMobile {
 		padding: 9px 3px 5px 7px;
 	}
+	&--opened {
+		display: none;
+	}
 }
 
 
@@ -231,6 +234,9 @@
 			display: unset;
 		}
 	}
+	@include mediaMobile {
+		display: none;
+	}
 }
 .song__dislike {
 	svg {
@@ -260,7 +266,7 @@
 			display: unset;
 		}
 	}
-	@include mediaTablet {
+	@include mediaMobile {
 		display: none;
 	}
 }
@@ -304,8 +310,12 @@
 	}
 }
 .expandPlayer {
+	margin-left: 10px;
 	img {
 		height: 35% !important;
+	}
+	@include mediaTablet {
+		margin-left: 0px;
 	}
 }
 

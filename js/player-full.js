@@ -3,17 +3,22 @@ const reduceButton = document.querySelector('#reducePlayer')
 const expandButton = document.querySelector('.expandPlayer')
 const arrow_back = document.querySelector('.arrow-back')
 const player_full = document.querySelector('.player__full')
+const player = document.querySelector('.player')
+const body = document.querySelector('body')
 
 expandButton.addEventListener('click', expandPlayer)
 reduceButton.addEventListener('click', reducePlayer)
 arrow_back.addEventListener('click', reducePlayer)
 
 function expandPlayer() {
-	console.log('dfsdf')
 	player_full.classList.add('player__full--full')
+	// player.classList.add('player--opened')
+	body.classList.add('no-scroll')
 }
 function reducePlayer() {
 	player_full.classList.remove('player__full--full')
+	// player.classList.remove('player--opened')
+	body.classList.remove('no-scroll')
 }
 
 

@@ -13,6 +13,9 @@ body {
 	@include mediaDecstop {
 		font-size: $primal-tablet;
 	}
+	&.no-scroll {
+		overflow: hidden;
+	}
 }
 a {
     color: $white;

@@ -12,7 +12,6 @@ function widthControl() {
 }
 
 
-
 // Свечение в внутри блоков
 inner_cells.forEach(cell => {
 
@@ -35,7 +34,6 @@ inner_cells.forEach(cell => {
 	})
 
 });
-
 
 
 // Свечение снаружи блоков
@@ -84,7 +82,6 @@ outer_cells.forEach(cell => {
 	})
 
 });
-
 
 
 // Смена иконок блоков при нажатии 
@@ -348,7 +345,7 @@ function imgDisappear() {
 			if (containerStatus == false) {
 				volume_container.style.opacity = '0'
 			}
-		}, 1500)
+		}, 500)
 	} else {
 		volume_container.style.opacity = '1'
 	}
@@ -367,7 +364,7 @@ function containerDisappear() {
 			volume_container.style.opacity = '0'	
 			volume_container.removeEventListener('mouseenter', containerAppear)
 		}
-	}, 1500);
+	}, 500);
 }
 
 
