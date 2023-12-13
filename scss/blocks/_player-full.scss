@@ -20,9 +20,9 @@
 	&--full {
 		display: flex !important;
 	}
-	// @include mediaTablet {
-	// 	padding-bottom: 10px;
-	// }
+	@include mediaTablet {
+		padding: 10px 40px 10px 40px;
+	}
 }
 // PNG изображения шума
 .noise-bg {
@@ -416,8 +416,8 @@
 	}
 	@include mediaTablet {
 		position: absolute;
-		top: 3px;
-		right: 15px;
+		top: 0px;
+		right: 0px;
 		img {
 			width: 17px;
 			height: 17px;
@@ -470,7 +470,7 @@
 		transform: translateX(-56%);
 
 		display: flex;
-		// display: none !important;
+		display: none !important;
 	}
 }
 #volume__wrapper {
@@ -490,21 +490,18 @@
 	&:hover #volume__line::after {
 		transform: scale(1);
 	}
-	@include mediaDecstop {
-		width:  79px;
-	}
-	@include mediaTablet {
-		width:  169px;
-	}
-	@include mediaMobile {
-		width:  159px;
-	}
+	// @include mediaTablet {
+	// 	width:  169px;
+	// }
+	// @include mediaMobile {
+	// 	width:  159px;
+	// }
 }
 #volume__line {
 	position: absolute;
 	left: 0;
 	height: 100%;
-	width: 60%;
+	// width: 60%;
 	border-radius: 4px;
 	background-color: $progress_line;
 	&::after {

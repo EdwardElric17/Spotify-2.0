@@ -15,8 +15,9 @@ $progress_line: #fff;
 $player-full: #181818f6;
 
 $black_hover: #101010c2;
-$white_hover: #ffffffc2;
-$white_active: #ffffffc2;
+$white_07: rgba(255, 255, 255, 0.7);
+$white_hover: rgba(255, 255, 255, 0.761);
+$white_active: rgba(255, 255, 255, 0.761);
 $greeting_mixes-hover: rgba(255, 255, 255, 0.1);
 $mix_card-hover: rgba(255, 255, 255, 0.06);
 $explore_button-hover: #888888;
@@ -25,31 +26,37 @@ $explore_button-hover: #888888;
 $primal: 1rem;
 $secondary: 1.1rem;
 $third: 0.9rem;
+$large: 6.77rem;
 $h1: 2.15rem;
 $h2: 1.7rem;
 
 $primal-tablet: 0.9rem;
 $secondary-tablet: 1rem;
 $third-tablet: 0.8rem;
+$large-tablet: 3.4rem;
 $h1-tablet: 1.6rem;
 $h2-tablet: 1.3rem;
 
 $primal-mobile: 0.8rem;
 $secondary-mobile: 0.9rem;
 $third-mobile: 0.7rem;
+$large-mobile: 3rem;
 $h1-mobile: 1.4rem;
 $h2-mobile: 1.2rem;
 
 $primal-mobile2: 0.7rem;
 $secondary-mobile2: 0.8rem;
 $third-mobile2: 0.6rem;
+$large-mobile2: 2rem;
 
 
 // Media breakpoints
 $desctop: 1280px;
-$tablet: 780px;
+$tablet: 875px;
 $mobile: 480px;
 
 // Fonts
 $font-bold: 'CircularStd-Bold';
 $font-book: 'CircularStd-Book';
+$font-medium: 'CircularStd-Medium';
+$font-black: 'CircularStd-Black';

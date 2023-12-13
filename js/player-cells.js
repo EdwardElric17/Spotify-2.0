@@ -216,7 +216,7 @@ volumeLine.style.width = `${volumeValue * 100}%`
 var volumeLine_width = volumeLine.offsetWidth
 var volumeWrapper_width = volumeWrapper.offsetWidth
 var volumeFullness = volumeLine_width / volumeWrapper_width
-document.addEventListener('resize', () => {
+window.addEventListener('resize', () => {
 	volumeLine_width = volumeLine.offsetWidth
 	volumeWrapper_width = volumeWrapper.offsetWidth
 	volumeFullness = volumeLine_width / volumeWrapper_width
@@ -291,6 +291,7 @@ volumeWrapper.addEventListener('mousedown', (e) => {
 	}
 	if (mouseX < 1) {
 		volumeLine.style.width = `0px`;
+		volumeValue = volumeLine.offsetWidth / volumeWrapper_width
 		volume_image.src = './img/player/mute.svg'
 		volume_image.classList.add('muted')
 

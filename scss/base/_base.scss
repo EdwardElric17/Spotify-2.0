@@ -6,6 +6,14 @@
 	font-family: 'CircularStd-Book';
 	src: url('/font/circular-std-font-family/CircularStd-Book.woff') format(woff);
 }
+@font-face {
+	font-family: 'CircularStd-Medium';
+	src: url('/font/circular-std-font-family/CircularStd-Medium.woff') format(woff);
+}
+@font-face {
+	font-family: 'CircularStd-Black';
+	src: url('/font/circular-std-font-family/CircularStd-Black.woff') format(woff);
+}
 
 body {
     color: $white;

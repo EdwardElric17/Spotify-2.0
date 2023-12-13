@@ -143,6 +143,10 @@
 	font-size: $primal;
 	color: $white;
 	white-space: nowrap;
+	cursor: pointer;
+	&:hover {
+		filter: brightness(0.8);
+	}
 	@include mediaDecstop {
 		font-size: $primal-tablet;
 	}
@@ -158,6 +162,10 @@
 	font-size: $third;
 	color: $decs_color;
 	white-space: nowrap;
+	cursor: pointer;
+	&:hover {
+		filter: brightness(0.8);
+	}
 	@include mediaDecstop {
 		font-size: $third-tablet;
 	}
